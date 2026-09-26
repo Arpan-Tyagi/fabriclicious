@@ -72,7 +72,7 @@ export function BrandLogo({
         <img
           src={logoFile}
           alt="Fabriclicious - High-End Fabric Atelier"
-          className={imgClassName || "h-9 sm:h-10 md:h-11 w-auto max-w-full object-contain"}
+          className={imgClassName || "h-10 sm:h-11 md:h-12 w-auto max-w-[260px] sm:max-w-[320px] object-contain"}
         />
       </motion.div>
     </div>

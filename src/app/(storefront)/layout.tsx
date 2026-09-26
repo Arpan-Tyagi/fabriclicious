@@ -42,7 +42,7 @@ export default function StorefrontLayout({ children }: { children: ReactNode }) 
             onClick={() => setIsMobileNavOpen(false)}
             className="group block"
           >
-            <BrandLogo variant="full" className="hidden md:flex" />
+            <BrandLogo variant="horizontal" className="hidden md:flex" />
             <BrandLogo variant="rosette-only" className="md:hidden" />
           </Link>
           

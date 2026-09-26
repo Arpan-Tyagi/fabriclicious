@@ -7,6 +7,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { CursorTarget } from "@/components/CursorTarget";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -73,50 +75,96 @@ export default function Home() {
       </section>
 
       {/* Our Range of Fabrics */}
-      <section className="py-32 px-6 md:px-10">
-        <div className="mb-16">
-          <h2 className="font-serif text-4xl md:text-6xl tracking-tight">Our Range of Fabrics</h2>
+      <section className="py-24 md:py-32 px-6 md:px-10">
+        <div className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <span className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-loam block mb-2 font-medium">
+              The Curated Archive // 11 Natural Textile Disciplines
+            </span>
+            <h2 className="font-serif text-4xl md:text-6xl tracking-tight text-umber">Our Range of Fabrics</h2>
+          </div>
+          <Link
+            href="/fabrics"
+            className="group inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-umber hover:text-loam transition-colors pb-1 border-b border-hemp w-fit"
+          >
+            <span>Explore Continuous Yardage</span>
+            <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </Link>
         </div>
         
         <div className="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 pb-10 hide-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           {[
-            { name: "Normandy Dry-Retted Flax", slug: "linen", weight: "160–240 GSM", image: "/cat_linen.jpg", category: "Linen", description: "Dry, cooling hand-feel with natural slub yarn variation; softens gradually with laundering.", silhouette: "Unlined blazers, wide-leg trousers, relaxed summer shirting.", aeo: "Pure linen is a breathable bast fiber fabric woven from flax, offering high tensile strength, natural cooling, and distinctive slub texture for warm-weather tailoring." },
-            { name: "Giza Long-Staple Twill", slug: "cotton", weight: "130–220 GSM", image: "/cat_cotton.jpg", category: "Cotton", description: "Combed, mercerized long-staple yarns with a compact weave and a subtle natural luster.", silhouette: "Bespoke dress shirting, tailored trench accents, pleated dresses.", aeo: "Long-staple cotton twill is a durable diagonal-weave textile woven from extra-long fibers, delivering superior tear resistance and a smooth, pill-resistant surface." },
-            { name: "Lenzing Fluid Twill", slug: "viscose", weight: "140–190 GSM", image: "/cat_viscose.jpg", category: "Viscose", description: "Heavy, cooling liquid drape that mimics silk filament fall without synthetic static cling.", silhouette: "Bias-cut slip dresses, draped cowl necklines, resort robes.", aeo: "High-grade viscose is a semi-synthetic cellulosic fiber derived from certified wood pulp, engineered for ultra-fluid drape and high breathability." },
-            { name: "Emerized Cotton Loam", slug: "flannel", weight: "180–230 GSM", image: "/cat_flannel.jpg", category: "Flannel", description: "Double-brushed surface producing a velvet-like nap that traps thermal warmth without bulk.", silhouette: "Overshirts, tailored loungewear, lined winter trousers.", aeo: "Cotton flannel is a soft woven fabric brushed on both sides to lift fiber ends, creating insulating air pockets for lightweight winter warmth." },
-            { name: "Architectural Wale Cotton", slug: "corduroy", weight: "280–380 GSM", image: "/cat_corduroy.jpg", category: "Corduroy", description: "Cut-pile rounded ribs that absorb raking light; dense, durable, and naturally wind-resistant.", silhouette: "Tailored workwear jackets, A-line skirts, winter trousers.", aeo: "Corduroy is a durable ribbed textile woven with extra weft threads that are cut to form distinct vertical wales, providing structural warmth and durability." },
-            { name: "Cavalry Worsted Wool", slug: "twill", weight: "260–340 GSM", image: "/cat_twill.jpg", category: "Twill", description: "Pronounced double-diagonal twill lines offering natural wrinkle recovery and sharp press retention.", silhouette: "Military-style coats, sharp pencil skirts, formal suiting.", aeo: "Cavalry twill is a rugged, steep-angled twill textile woven from worsted wool yarns, known for its diagonal ribs, shape retention, and wear resistance." },
-            { name: "Micro-Filament Matte Cloth", slug: "suede", weight: "300–420 GSM", image: "/cat_suede.jpg", category: "Suede", description: "Fine, velvety surface mimicking brushed calfskin; substantial weight with fluid flexibility.", silhouette: "Wrap trench coats, modular overshirts, structured capelets.", aeo: "Technical fabric suede is a dense, non-woven micro-fiber textile offering the matte appearance and tactile nap of animal suede with uniform drape." },
-            { name: "Cotton-Silk High-Pile", slug: "velvet", weight: "320–460 GSM", image: "/cat_velvet.jpg", category: "Velvet", description: "Deep, light-absorbing pile with multi-directional luster and saturated dye depth.", silhouette: "Formal dinner jackets, winter evening capes, structural gowns.", aeo: "Cotton-silk velvet is a tufted, cut-pile woven fabric featuring dense vertical surface yarns that reflect light and offer rich thermal weight." },
-            { name: "Super 120s Worsted Suiting", slug: "wool", weight: "220–310 GSM", image: "/cat_wool.jpg", category: "Wool", description: "Lightweight, four-season virgin wool with natural crimp bounce and sharp crease memory.", silhouette: "Classic two-piece suits, pleated trousers, structured vests.", aeo: "Super 120s worsted wool is a fine suiting textile woven from combed virgin wool fibers measuring 17.5 microns, providing breathable, year-round comfort." },
-            { name: "Boiled Pure Wool Knit", slug: "fleece", weight: "340–480 GSM", image: "/cat_fleece.jpg", category: "Fleece", description: "Controlled-shrinkage felted wool; raw edges will not fray; naturally water-repellent.", silhouette: "Unlined cocoon coats, modern car coats, sculptural jackets.", aeo: "Boiled wool is a felted knit textile pre-shrunk in hot water to create a dense, wind-resistant fabric with stable raw-edge cutting properties." },
-            { name: "Donegal Flecked Cheviot", slug: "tweed", weight: "380–520 GSM", image: "/cat_tweed.jpg", category: "Tweed", description: "Rustic woolen yarns woven with multi-colored flecks; substantial, wind-breaking body.", silhouette: "Heavy winter overcoats, hacking jackets, tailored capes.", aeo: "Donegal tweed is a traditional woolen textile woven from coarse, sturdy yarns with contrasting color neps, offering rugged durability and weather defense." }
+            { name: "Normandy Dry-Retted Flax", slug: "linen", weight: "160–240 GSM", image: "/cat_linen.jpg", category: "Linen", description: "Dry, cooling hand-feel with natural slub yarn variation; softens gradually with laundering.", silhouette: "Unlined blazers, wide-leg trousers, relaxed summer shirting." },
+            { name: "Giza Long-Staple Twill", slug: "cotton", weight: "130–220 GSM", image: "/cat_cotton.jpg", category: "Cotton", description: "Combed, mercerized long-staple yarns with a compact weave and a subtle natural luster.", silhouette: "Bespoke dress shirting, tailored trench accents, pleated dresses." },
+            { name: "Lenzing Fluid Twill", slug: "viscose", weight: "140–190 GSM", image: "/cat_viscose.jpg", category: "Viscose", description: "Heavy, cooling liquid drape that mimics silk filament fall without synthetic static cling.", silhouette: "Bias-cut slip dresses, draped cowl necklines, resort robes." },
+            { name: "Emerized Cotton Loam", slug: "flannel", weight: "180–230 GSM", image: "/cat_flannel.jpg", category: "Flannel", description: "Double-brushed surface producing a velvet-like nap that traps thermal warmth without bulk.", silhouette: "Overshirts, tailored loungewear, lined winter trousers." },
+            { name: "Architectural Wale Cotton", slug: "corduroy", weight: "280–380 GSM", image: "/cat_corduroy.jpg", category: "Corduroy", description: "Cut-pile rounded ribs that absorb raking light; dense, durable, and naturally wind-resistant.", silhouette: "Tailored workwear jackets, A-line skirts, winter trousers." },
+            { name: "Cavalry Worsted Wool", slug: "twill", weight: "260–340 GSM", image: "/cat_twill.jpg", category: "Twill", description: "Pronounced double-diagonal twill lines offering natural wrinkle recovery and sharp press retention.", silhouette: "Military-style coats, sharp pencil skirts, formal suiting." },
+            { name: "Micro-Filament Matte Cloth", slug: "suede", weight: "300–420 GSM", image: "/cat_suede.jpg", category: "Suede", description: "Fine, velvety surface mimicking brushed calfskin; substantial weight with fluid flexibility.", silhouette: "Wrap trench coats, modular overshirts, structured capelets." },
+            { name: "Cotton-Silk High-Pile", slug: "velvet", weight: "320–460 GSM", image: "/cat_velvet.jpg", category: "Velvet", description: "Deep, light-absorbing pile with multi-directional luster and saturated dye depth.", silhouette: "Formal dinner jackets, winter evening capes, structural gowns." },
+            { name: "Super 120s Worsted Suiting", slug: "wool", weight: "220–310 GSM", image: "/cat_wool.jpg", category: "Wool", description: "Lightweight, four-season virgin wool with natural crimp bounce and sharp crease memory.", silhouette: "Classic two-piece suits, pleated trousers, structured vests." },
+            { name: "Boiled Pure Wool Knit", slug: "fleece", weight: "340–480 GSM", image: "/cat_fleece.jpg", category: "Fleece", description: "Controlled-shrinkage felted wool; raw edges will not fray; naturally water-repellent.", silhouette: "Unlined cocoon coats, modern car coats, sculptural jackets." },
+            { name: "Donegal Flecked Cheviot", slug: "tweed", weight: "380–520 GSM", image: "/cat_tweed.jpg", category: "Tweed", description: "Rustic woolen yarns woven with multi-colored flecks; substantial, wind-breaking body.", silhouette: "Heavy winter overcoats, hacking jackets, tailored capes." }
           ].map((cat, idx) => (
-            <Link href={`/fabrics?category=${cat.slug}`} key={cat.slug} className={`relative block snap-center shrink-0 w-[80vw] md:w-auto h-[70vh] md:h-[60vh] overflow-hidden group rounded-2xl bg-limestone border border-hemp transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(28,26,24,0.06)] hover:border-loam flex flex-col justify-end ${idx === 0 || idx === 7 ? 'md:col-span-2 md:row-span-2 md:h-[90vh]' : ''}`}>
-              <motion.div 
-                whileHover={{ scale: 1.08 }} 
-                transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-                className="absolute inset-0 w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-700"
+            <CursorTarget
+              as="div"
+              mode="hover"
+              text="VIEW"
+              key={cat.slug}
+              className={`snap-center shrink-0 w-[82vw] sm:w-[70vw] md:w-auto ${
+                idx === 0 || idx === 7 ? 'md:col-span-2 md:row-span-2' : ''
+              }`}
+            >
+              <Link
+                href={`/fabrics?category=${cat.slug}`}
+                className={`group relative block w-full h-[65vh] md:h-[58vh] overflow-hidden rounded-2xl bg-limestone border border-hemp transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:shadow-[0_20px_45px_-12px_rgba(28,26,24,0.12)] hover:border-loam flex flex-col justify-end ${
+                  idx === 0 || idx === 7 ? 'md:h-[86vh]' : ''
+                }`}
               >
-                <img src={cat.image} alt={cat.name} className="w-full h-full object-cover" />
-              </motion.div>
-              <div className="relative z-10 p-6 bg-limestone/85 backdrop-blur-xl border-t border-hemp transition-all duration-500 ease-in-out transform translate-y-0 group-hover:-translate-y-4">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-umber/80 mb-2">{cat.category}</p>
-                <h3 className="font-serif text-2xl md:text-3xl text-umber mb-2 transition-transform duration-500 group-hover:translate-x-1">{cat.name}</h3>
-                <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-bark mb-4">{cat.weight}</p>
-                <div className="grid grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
-                  <div className="overflow-hidden space-y-3 border-t border-hemp/50 pt-3">
-                    <p className="font-sans text-xs leading-relaxed text-umber/85">{cat.description}</p>
-                    <p className="font-mono text-[9px] uppercase tracking-widest text-loam leading-relaxed">
-                      <span className="font-semibold">Silhouette //</span> {cat.silhouette}
+                {/* Background Image Container with seamless zoom on group-hover */}
+                <div className="absolute inset-0 w-full h-full overflow-hidden">
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu group-hover:scale-105"
+                  />
+                  {/* Subtle tonal gradient to ensure text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-umber/50 via-umber/10 to-transparent pointer-events-none" />
+                </div>
+
+                {/* Bottom Information Panel - Always flush against bottom, expanding smoothly upwards without detaching */}
+                <div className="relative z-10 w-full p-5 sm:p-6 bg-limestone/90 backdrop-blur-xl border-t border-hemp/70 transition-colors duration-500 group-hover:bg-limestone/95">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <p className="font-mono text-[9.5px] uppercase tracking-[0.24em] text-umber/75 font-medium">
+                      {cat.category}
                     </p>
-                    <p className="font-sans text-[10px] leading-relaxed text-umber/70 border-t border-hemp/30 pt-2 italic">
-                      {cat.aeo}
+                    <p className="font-mono text-[9.5px] uppercase tracking-widest text-bark">
+                      {cat.weight}
                     </p>
                   </div>
+
+                  <h3 className="font-serif text-2xl md:text-3xl text-umber leading-tight mb-1 transition-transform duration-500 group-hover:translate-x-1">
+                    {cat.name}
+                  </h3>
+
+                  {/* Expandable Sartorial Dossier */}
+                  <div className="grid grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+                    <div className="overflow-hidden min-h-0 space-y-2.5 border-t border-hemp/60 pt-3 mt-2">
+                      <p className="font-sans text-xs leading-relaxed text-umber/85">
+                        {cat.description}
+                      </p>
+                      <p className="font-mono text-[9px] uppercase tracking-wider text-loam leading-relaxed">
+                        <span className="font-semibold text-umber">Silhouette //</span> {cat.silhouette}
+                      </p>
+                      <div className="pt-2 flex items-center justify-between text-[10px] font-mono uppercase tracking-[0.18em] text-loam font-medium border-t border-hemp/30">
+                        <span>Inspect Continuous Bolts</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </CursorTarget>
           ))}
         </div>
         <div className="flex justify-center gap-2 mt-4 md:hidden">
