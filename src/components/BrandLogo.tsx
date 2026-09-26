@@ -5,69 +5,77 @@ import React from "react";
 
 interface BrandLogoProps {
   className?: string;
-  variant?: "full" | "rosette-only";
+  imgClassName?: string;
+  variant?: "full" | "horizontal" | "rosette-only" | "stacked";
+  theme?: "light" | "dark";
 }
 
-export function BrandLogo({ className = "", variant = "full" }: BrandLogoProps) {
-  // 10-petal rosette
-  const petals = Array.from({ length: 10 }).map((_, i) => {
-    const angle = i * 36;
+export function BrandLogo({
+  className = "",
+  imgClassName = "",
+  variant = "horizontal",
+  theme = "light",
+}: BrandLogoProps) {
+  // Mobile / compact standalone rosette emblem with spring rotational unwind
+  if (variant === "rosette-only") {
     return (
-      <path
-        key={i}
-        d="M 12 12 Q 18 2 12 2 Q 6 2 12 12"
-        fill="currentColor"
-        opacity="0.15"
-        transform={`rotate(${angle} 12 12)`}
-      />
+      <div className={`inline-flex items-center ${className}`}>
+        <motion.div
+          className="relative shrink-0 flex items-center justify-center cursor-pointer"
+          whileHover={{ rotate: 15 }}
+          transition={{ type: "spring", stiffness: 120, damping: 14 }}
+        >
+          <img
+            src="/images/logo-rosette.svg"
+            alt="Fabriclicious Rosette Emblem"
+            className={imgClassName || "w-8 h-8 sm:w-9 sm:h-9 object-contain"}
+          />
+        </motion.div>
+      </div>
     );
-  });
-  
-  const petalOutlines = Array.from({ length: 10 }).map((_, i) => {
-    const angle = i * 36;
+  }
+
+  // Centered stacked lockup (ideal for modal/splash screens)
+  if (variant === "stacked") {
     return (
-      <path
-        key={`outline-${i}`}
-        d="M 12 12 Q 18 2 12 2 Q 6 2 12 12"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="0.4"
-        transform={`rotate(${angle} 12 12)`}
-      />
+      <div className={`inline-flex items-center justify-center ${className}`}>
+        <motion.div
+          className="relative shrink-0 flex items-center justify-center cursor-pointer"
+          whileHover={{ scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 120, damping: 14 }}
+        >
+          <img
+            src="/images/logo_logo.svg"
+            alt="Fabriclicious Atelier"
+            className={imgClassName || "w-24 h-24 sm:w-32 sm:h-32 object-contain"}
+          />
+        </motion.div>
+      </div>
     );
-  });
+  }
+
+  // Full / Horizontal lockup (ideal for headers and footers)
+  // Light theme: dark typography for light backgrounds (limestone/linen)
+  // Dark theme: Pumice Linen typography for dark backgrounds (smoked umber)
+  const logoFile =
+    theme === "dark"
+      ? "/images/logo-horizontal-light.svg"
+      : "/images/logo-horizontal.svg";
 
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
+    <div className={`inline-flex items-center ${className}`}>
       <motion.div
-        className="relative text-umber shrink-0 flex items-center justify-center cursor-pointer"
-        whileHover={{ rotate: 15 }}
+        className="relative shrink-0 flex items-center justify-center cursor-pointer"
+        whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", stiffness: 120, damping: 14 }}
       >
-        <svg
-          viewBox="0 0 24 24"
-          className="w-8 h-8 sm:w-10 sm:h-10 text-loam"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {petals}
-          {petalOutlines}
-          <circle cx="12" cy="12" r="3.5" stroke="currentColor" strokeWidth="0.5" fill="currentColor" opacity="0.1" />
-          <circle cx="12" cy="12" r="3.5" stroke="currentColor" strokeWidth="0.5" fill="none" />
-          <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-        </svg>
+        <img
+          src={logoFile}
+          alt="Fabriclicious - High-End Fabric Atelier"
+          className={imgClassName || "h-9 sm:h-10 md:h-11 w-auto max-w-full object-contain"}
+        />
       </motion.div>
-
-      {variant === "full" && (
-        <div className="flex flex-col">
-          <span className="font-serif italic text-xl sm:text-2xl leading-none tracking-tight text-umber">
-            Fabriclicious
-          </span>
-          <span className="font-sans text-[8px] sm:text-[9px] font-medium uppercase tracking-[0.35em] text-umber/70 mt-1.5 ml-0.5">
-            High-End Fabric Atelier
-          </span>
-        </div>
-      )}
     </div>
   );
 }
+

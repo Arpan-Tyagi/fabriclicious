@@ -166,12 +166,16 @@ export default function StorefrontLayout({ children }: { children: ReactNode }) 
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-20">
             
-            {/* Massive Typographic Anchor */}
+            {/* Massive Typographic Anchor with Master Horizontal Brand Logo */}
             <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
               <div>
-                <h2 className="font-serif text-[clamp(2.5rem,5.5vw,5rem)] tracking-tight leading-[0.95] mb-6 text-linen max-w-full break-words">
-                  Fabriclicious<span className="text-loam">.</span>
-                </h2>
+                <Link href="/" className="inline-block mb-6 group">
+                  <BrandLogo 
+                    variant="horizontal" 
+                    theme="dark" 
+                    imgClassName="h-12 sm:h-14 md:h-16 w-auto object-contain" 
+                  />
+                </Link>
                 <p className="font-sans text-sm md:text-base text-linen/60 max-w-md leading-relaxed mb-2">
                   The exclusive digital atelier of <strong className="text-linen font-medium">Mithila Enterprises</strong>.
                 </p>
