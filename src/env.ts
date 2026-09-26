@@ -28,4 +28,5 @@ export const env = createEnv({
     NEXT_PUBLIC_RAZORPAY_KEY_ID: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
   },
+  skipValidation: !!process.env.CI || !!process.env.CF_PAGES,
 });

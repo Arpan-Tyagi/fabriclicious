@@ -55,12 +55,7 @@ export function BrandLogo({
   }
 
   // Full / Horizontal lockup (ideal for headers and footers)
-  // Light theme: dark typography for light backgrounds (limestone/linen)
-  // Dark theme: Pumice Linen typography for dark backgrounds (smoked umber)
-  const logoFile =
-    theme === "dark"
-      ? "/images/logo-horizontal-light.svg"
-      : "/images/logo-horizontal.svg";
+  const logoFile = "/images/logo_logo horizontal.svg";
 
   return (
     <div className={`inline-flex items-center ${className}`}>
@@ -72,7 +67,7 @@ export function BrandLogo({
         <img
           src={logoFile}
           alt="Fabriclicious - High-End Fabric Atelier"
-          className={imgClassName || "h-10 sm:h-11 md:h-12 w-auto max-w-[260px] sm:max-w-[320px] object-contain"}
+          className={imgClassName || "h-12 sm:h-14 md:h-16 w-auto max-w-[280px] sm:max-w-[360px] object-contain drop-shadow-sm mix-blend-multiply opacity-90"}
         />
       </motion.div>
     </div>
