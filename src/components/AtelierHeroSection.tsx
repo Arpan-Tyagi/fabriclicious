@@ -46,33 +46,10 @@ export const AtelierHeroSection: React.FC = () => {
         <div className="absolute top-0 inset-x-0 h-44 bg-gradient-to-b from-umber/80 to-transparent pointer-events-none" />
       </motion.div>
 
-      {/* Global Announcement Utility Bar */}
-      <div className="relative z-40 w-full bg-umber/90 backdrop-blur-md border-b border-hemp/25 py-2.5 px-6 overflow-hidden">
-        <div className="flex whitespace-nowrap animate-marquee-slow font-mono text-[9.5px] uppercase tracking-[0.26em] text-linen/75 items-center gap-10">
-          <span className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-laurel inline-block animate-pulse" />
-            Bespoke Fractional Cuts From 0.5 Meters
-          </span>
-          <span className="text-hemp/50">✦</span>
-          <span>100% Swatch Sampling Fees Credited Against Continuous Yardage Orders</span>
-          <span className="text-hemp/50">✦</span>
-          <span>Direct European Provenance: Normandy Flax // Como Silks // Biella Worsted Wools</span>
-          <span className="text-hemp/50">✦</span>
-          <span>Single-Run Continuous Bolt Allocation Guaranteed</span>
-          <span className="text-hemp/50">✦</span>
-          <span className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-laurel inline-block animate-pulse" />
-            Bespoke Fractional Cuts From 0.5 Meters
-          </span>
-          <span className="text-hemp/50">✦</span>
-          <span>100% Swatch Sampling Fees Credited Against Continuous Yardage Orders</span>
-        </div>
-      </div>
-
       {/* Main Hero Spatial Canvas */}
       <motion.div
         style={{ y: textY, opacity }}
-        className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-28 md:pt-36 lg:pt-40 flex-1 flex flex-col justify-between"
+        className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-36 sm:pt-40 md:pt-44 flex-1 flex flex-col justify-between"
       >
         {/* Asymmetrical Haute-Couture Split: Monumental Type + Sculpted Glass Island */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-end mb-12 lg:mb-16">

@@ -21,53 +21,68 @@ export default function StorefrontLayout({ children }: { children: ReactNode }) 
     <CursorProvider>
       <CustomCursor />
       <div className="flex flex-col min-h-screen bg-linen">
-      {/* Luxury Glassmorphism Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-3 sm:px-6 md:px-12 md:py-5 flex items-center justify-between bg-limestone/90 backdrop-blur-md border-b border-hemp/50 text-umber shadow-sm transition-all">
-        <Link 
-          href="/" 
-          onClick={() => setIsMobileNavOpen(false)}
-          className="group block"
-        >
-          <BrandLogo variant="full" className="hidden md:flex" />
-          <BrandLogo variant="rosette-only" className="md:hidden" />
-        </Link>
-        
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-7 font-mono text-xs uppercase tracking-[0.18em]">
-          <Link href="/fabrics" className="hover:text-loam transition-colors">Archive</Link>
-          <Link href="/journal" className="hover:text-loam transition-colors">Journal</Link>
-          <Link href="/swatches" className="hover:text-loam transition-colors">Swatches</Link>
-          <Link href="/about" className="hover:text-loam transition-colors">Our Legacy</Link>
-          <Link href="/admin/products/new" className="hover:text-loam transition-colors">Atelier</Link>
-          <Link href="/login" className="hover:text-loam transition-colors">Client Access</Link>
-        </nav>
-
-        {/* Action Controls */}
-        <div className="flex items-center gap-3 sm:gap-6">
-          <Link href="/fabrics" className="hover:text-loam transition-colors p-1" aria-label="Search Archive">
-            <Search size={18} strokeWidth={1.5} />
-          </Link>
-          <button 
-            onClick={() => openCart()} 
-            className="hover:text-loam transition-colors relative p-1"
-            aria-label="Open Shopping Bag"
-          >
-            <ShoppingBag size={18} strokeWidth={1.5} />
-            <span className="absolute -top-1 -right-1.5 bg-loam text-umber text-[9px] font-mono w-4 h-4 rounded-full flex items-center justify-center font-bold">
-              {itemsCount}
-            </span>
-          </button>
-
-          {/* Mobile Navigation Toggle Button */}
-          <button 
-            onClick={() => setIsMobileNavOpen(prev => !prev)} 
-            className="lg:hidden p-1.5 hover:text-loam transition-colors focus:outline-none"
-            aria-label="Toggle Navigation Menu"
-          >
-            {isMobileNavOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
-          </button>
+      {/* Top Fixed Header with Global Announcement Utility Bar */}
+      <div className="fixed top-0 left-0 right-0 z-50">
+        {/* Global Announcement Utility Bar (Highlighted Section) */}
+        <div className="w-full bg-loam text-linen py-2 px-4 overflow-hidden border-b border-hemp shadow-sm">
+          <div className="flex whitespace-nowrap animate-marquee-slow font-mono text-[10px] uppercase tracking-widest items-center gap-10">
+            <span>// BESPOKE CONTINUOUS CUTS FROM 0.5 METERS. SWATCH SAMPLING FEES ARE 100% CREDITED AGAINST YOUR CONTINUOUS YARDAGE ORDER.</span>
+            <span>// DIRECT MILL PROVENANCE: FRENCH NORMANDY LINENS, COMO SILK SATINS, AND YORKSHIRE WORSTED WOOLS.</span>
+            <span>// SINGLE-DYE LOT INTEGRITY: CONTINUOUS UNBROKEN RUNS GUARANTEED.</span>
+            <span>// BESPOKE CONTINUOUS CUTS FROM 0.5 METERS. SWATCH SAMPLING FEES ARE 100% CREDITED AGAINST YOUR CONTINUOUS YARDAGE ORDER.</span>
+            <span>// DIRECT MILL PROVENANCE: FRENCH NORMANDY LINENS, COMO SILK SATINS, AND YORKSHIRE WORSTED WOOLS.</span>
+            <span>// SINGLE-DYE LOT INTEGRITY: CONTINUOUS UNBROKEN RUNS GUARANTEED.</span>
+          </div>
         </div>
-      </header>
+
+        {/* Luxury Glassmorphism Header */}
+        <header className="px-4 py-3 sm:px-6 md:px-12 md:py-4 flex items-center justify-between bg-limestone/95 backdrop-blur-md border-b border-hemp/50 text-umber shadow-sm transition-all">
+          <Link 
+            href="/" 
+            onClick={() => setIsMobileNavOpen(false)}
+            className="group block"
+          >
+            <BrandLogo variant="full" className="hidden md:flex" />
+            <BrandLogo variant="rosette-only" className="md:hidden" />
+          </Link>
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-7 font-mono text-xs uppercase tracking-[0.18em]">
+            <Link href="/fabrics" className="hover:text-loam transition-colors">Archive</Link>
+            <Link href="/journal" className="hover:text-loam transition-colors">Journal</Link>
+            <Link href="/swatches" className="hover:text-loam transition-colors">Swatches</Link>
+            <Link href="/about" className="hover:text-loam transition-colors">Our Legacy</Link>
+            <Link href="/admin/products/new" className="hover:text-loam transition-colors">Atelier</Link>
+            <Link href="/login" className="hover:text-loam transition-colors">Client Access</Link>
+          </nav>
+
+          {/* Action Controls */}
+          <div className="flex items-center gap-3 sm:gap-6">
+            <Link href="/fabrics" className="hover:text-loam transition-colors p-1" aria-label="Search Archive">
+              <Search size={18} strokeWidth={1.5} />
+            </Link>
+            <button 
+              onClick={() => openCart()} 
+              className="hover:text-loam transition-colors relative p-1"
+              aria-label="Open Shopping Bag"
+            >
+              <ShoppingBag size={18} strokeWidth={1.5} />
+              <span className="absolute -top-1 -right-1.5 bg-loam text-umber text-[9px] font-mono w-4 h-4 rounded-full flex items-center justify-center font-bold">
+                {itemsCount}
+              </span>
+            </button>
+
+            {/* Mobile Navigation Toggle Button */}
+            <button 
+              onClick={() => setIsMobileNavOpen(prev => !prev)} 
+              className="lg:hidden p-1.5 hover:text-loam transition-colors focus:outline-none"
+              aria-label="Toggle Navigation Menu"
+            >
+              {isMobileNavOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
+            </button>
+          </div>
+        </header>
+      </div>
 
       {/* Mobile Drawer Navigation */}
       <AnimatePresence>
@@ -80,7 +95,7 @@ export default function StorefrontLayout({ children }: { children: ReactNode }) 
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={() => setIsMobileNavOpen(false)}
-              className="fixed inset-0 top-[53px] sm:top-[61px] bg-umber/50 backdrop-blur-md z-40 lg:hidden"
+              className="fixed inset-0 top-[85px] sm:top-[93px] bg-umber/50 backdrop-blur-md z-40 lg:hidden"
             />
 
             {/* Slide-Down Drawer Panel */}
@@ -89,7 +104,7 @@ export default function StorefrontLayout({ children }: { children: ReactNode }) 
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-[53px] sm:top-[61px] left-0 right-0 bg-linen border-b border-hemp shadow-2xl z-50 lg:hidden px-6 py-6 flex flex-col space-y-4 max-h-[calc(100vh-61px)] overflow-y-auto"
+              className="fixed top-[85px] sm:top-[93px] left-0 right-0 bg-linen border-b border-hemp shadow-2xl z-50 lg:hidden px-6 py-6 flex flex-col space-y-4 max-h-[calc(100vh-93px)] overflow-y-auto"
             >
               <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-loam pb-2 border-b border-hemp/40">
                 Atelier Navigation
