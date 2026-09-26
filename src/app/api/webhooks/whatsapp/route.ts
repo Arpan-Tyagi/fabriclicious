@@ -4,8 +4,8 @@ import { env } from "@/env";
 import { createClient } from "@supabase/supabase-js";
 import { GoogleGenAI } from "@google/genai";
 import { OmnichannelDispatcher } from "@/lib/services/OmnichannelDispatcher";
-const ai = new GoogleGenAI({ apiKey: env.GEMINI_API_KEY });
-const supabaseAdmin = createClient(env.NEXT_PUBLIC_SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY);
+const ai = new GoogleGenAI({ apiKey: env.GEMINI_API_KEY || 'dummy_key' });
+const supabaseAdmin = createClient(env.NEXT_PUBLIC_SUPABASE_URL || 'https://dummy.supabase.co', env.SUPABASE_SERVICE_ROLE_KEY || 'dummy_key');
 
 export async function GET(req: NextRequest) {
   const url = new URL(req.url);

@@ -3,7 +3,7 @@ import { GoogleGenAI, Type, FunctionDeclaration } from "@google/genai";
 import { env } from "@/env";
 import { createClient } from "@/lib/supabase/server";
 
-const ai = new GoogleGenAI({ apiKey: env.GEMINI_API_KEY });
+const ai = new GoogleGenAI({ apiKey: env.GEMINI_API_KEY || 'dummy_key' });
 
 const checkFabricInventory: FunctionDeclaration = {
   name: "check_fabric_inventory",

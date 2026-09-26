@@ -5,13 +5,13 @@ import { env } from "@/env";
 import Razorpay from "razorpay";
 
 const razorpay = new Razorpay({
-  key_id: env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-  key_secret: env.RAZORPAY_KEY_SECRET,
+  key_id: env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'dummy_key_id',
+  key_secret: env.RAZORPAY_KEY_SECRET || 'dummy_key_secret',
 });
 
 const supabaseAdmin = createClient(
-  env.NEXT_PUBLIC_SUPABASE_URL,
-  env.SUPABASE_SERVICE_ROLE_KEY
+  env.NEXT_PUBLIC_SUPABASE_URL || 'https://dummy.supabase.co',
+  env.SUPABASE_SERVICE_ROLE_KEY || 'dummy_key'
 );
 
 export async function POST(req: NextRequest) {
