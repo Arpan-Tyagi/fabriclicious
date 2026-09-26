@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #E6E2D8;
+    --surface: #DDD8CD;
+    --ink: #1C1A18;
+    --ink-muted: #635E56;
+    --border: #CBC4B5;
+    --accent: #8A7968;
+    --badge: #767E6B;
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--ink);
+    @apply font-sans antialiased selection:bg-loam selection:text-linen;
+  }
+}
+
+@layer utilities {
+  .double-bezel {
+    @apply relative p-1.5 rounded-[2rem] bg-limestone/60 border border-hemp/60;
+  }
+  .double-bezel-inner {
+    @apply bg-limestone rounded-[calc(2rem-0.375rem)] shadow-[inset_0_1px_1px_rgba(203,196,181,0.4)];
+  }
+  
+  .luxury-button {
+    @apply inline-flex items-center justify-center rounded-full bg-umber text-linen px-6 py-3 font-medium transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-loam hover:scale-[0.98] active:scale-95;
+  }
+  
+  .luxury-input {
+    @apply w-full bg-transparent border-b border-hemp focus:border-loam outline-none py-3 transition-colors rounded-none placeholder:text-umber/40;
+  }
+}

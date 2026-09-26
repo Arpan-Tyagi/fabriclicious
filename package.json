@@ -1,0 +1,45 @@
+{
+  "name": "temp-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@google/genai": "^2.23.0",
+    "@gsap/react": "^2.1.2",
+    "@react-email/components": "^1.0.12",
+    "@react-email/render": "^2.1.0",
+    "@sentry/nextjs": "^10.74.0",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.116.0",
+    "@t3-oss/env-nextjs": "^0.13.11",
+    "@vercel/og": "^1.0.2",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.26",
+    "lucide-react": "^1.46.0",
+    "motion": "^13.3.0",
+    "next": "15.0.0-rc.1",
+    "razorpay": "^2.9.8",
+    "react": "19.0.0-rc-cd22717c-20241013",
+    "react-dom": "19.0.0-rc-cd22717c-20241013",
+    "react-phone-number-input": "^3.4.18",
+    "resend": "^6.28.0",
+    "zod": "^4.6.5",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.6.0",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.0-rc.1",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5"
+  }
+}
