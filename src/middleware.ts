@@ -7,9 +7,17 @@ export async function middleware(request: NextRequest) {
     request,
   })
 
+  const supabaseUrl = env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
+  const supabaseKey = env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder_key';
+
+  // If Supabase is not configured, skip auth middleware
+  if (!env.NEXT_PUBLIC_SUPABASE_URL) {
+    return NextResponse.next({ request });
+  }
+
   const supabase = createServerClient(
-    env.NEXT_PUBLIC_SUPABASE_URL,
-    env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    supabaseUrl,
+    supabaseKey,
     {
       cookies: {
         getAll() {
