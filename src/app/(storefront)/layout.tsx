@@ -170,7 +170,7 @@ export default function StorefrontLayout({ children }: { children: ReactNode }) 
         )}
       </AnimatePresence>
       
-      <main className="flex-1 flex flex-col">
+      <main className="flex-1 flex flex-col pt-[110px] md:pt-[130px]">
         {children}
       </main>
 
