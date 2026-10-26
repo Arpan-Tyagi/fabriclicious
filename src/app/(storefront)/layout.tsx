@@ -244,7 +244,21 @@ export default function StorefrontLayout({ children }: { children: ReactNode }) 
 
           {/* Bottom Bar */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pt-8 border-t border-linen/10 font-mono text-[10px] uppercase tracking-widest text-linen/40 gap-4">
-            <p>&copy; {new Date().getFullYear()} Fabriclicious. A venture of Mithila Enterprises.</p>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+              <p>&copy; {new Date().getFullYear()} Fabriclicious. A venture of Mithila Enterprises.</p>
+              <span className="hidden sm:inline text-linen/20">&bull;</span>
+              <p>
+                Crafted with Purpose by{' '}
+                <a 
+                  href="https://panarchdigital.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-linen/70 hover:text-linen transition-colors underline decoration-linen/30 underline-offset-4 hover:decoration-linen"
+                >
+                  Panarch Digital
+                </a>
+              </p>
+            </div>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
               <div className="flex items-center gap-2 border-r border-linen/20 pr-6">
                 <span className="text-linen">Meters</span>
