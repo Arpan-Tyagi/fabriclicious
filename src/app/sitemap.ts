@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { ATELIER_JOURNAL_ARTICLES } from "@/data/journalArticles";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://www.fabriclicious.com";
@@ -26,8 +27,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${baseUrl}/journal`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
+      changeFrequency: "daily",
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/about`,
@@ -61,21 +62,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Editorial masterclasses
-  const journalRoutes: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/journal/mastering-true-bias`,
+  // All 14 weekly atelier masterclasses
+  const journalRoutes: MetadataRoute.Sitemap = Object.keys(ATELIER_JOURNAL_ARTICLES).map(
+    (slug) => ({
+      url: `${baseUrl}/journal/${slug}`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/journal/belgian-flax-linen-tailoring-guide`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-  ];
+      changeFrequency: "weekly",
+      priority: 0.85,
+    })
+  );
 
   // Static categories for direct crawlability
   const categorySlugs = [
