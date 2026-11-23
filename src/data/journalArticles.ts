@@ -24,13 +24,13 @@ export const ATELIER_JOURNAL_ARTICLES: Record<string, JournalArticle> = {
     pastel: "bg-pastel-rose/40",
     excerpt: "Master seam stabilization, Microtex needle pairing, and grainline tension control for ultra-fluid silk drapes.",
     content: `
-Silk satin woven from continuous Grade 6A Mulberry filaments possesses an ultra-fluid drape index that behaves fundamentally different from staple-spun yarns. In couture ateliers, cutting and stitching fluid silk requires strict micro-mechanical calibration.
+Silk satin woven from continuous Grade 6A Mulberry filaments behaves differently from staple-spun yarns. In couture ateliers, cutting and stitching fluid silk requires strict micro-mechanical calibration.
 
 ## 1. Loom Relaxation & Table Friction
-Before shears touch silk satin, unroll the yardage onto a wool-felt or heavy muslin cutting table and allow it to rest for at least 18 hours. This neutralizes residual roll-tension and allows the warp filaments to achieve natural equilibrium.
+Before shears touch silk satin, unroll the yardage onto a wool-felt or heavy muslin cutting table and allow it to rest for at least 18 hours. This neutralizes residual roll-tension and allows the warp filaments to settle naturally.
 
 - **Cutting Matting**: Pure wool felt or textured craft paper prevents fabric slippage during shearing.
-- **Shearing Tool**: 10-inch razor-edge tailor's shears or a 45mm rotary blade with fresh carbide disc.
+- **Shearing Tool**: 10-inch razor-edge tailor's shears or a 45mm rotary blade with a fresh carbide disc.
 - **Pinning Protocol**: Ultra-fine glass-head silk pins (0.4mm gauge) placed strictly within seam allowances.
 
 ## 2. Needle, Thread & Machine Calibration
@@ -60,11 +60,11 @@ Cutting garments on the true bias involves orienting pattern pieces at an exact 
 When layout angles deviate even 2 degrees off the 45-degree axis, diagonal shear forces cause one side of the garment to spiral around the torso. 
 
 - Use a 24-inch drafting square aligned to pulled thread grainlines.
-- Cut single-ply face up—never cut bias garments on the fold.
+- Cut single-ply face up, never folded.
 - Allow 25% to 30% additional yardage allowance for pattern nesting.
 
 ## 2. Hang Relaxation Before Hemming
-A bias-cut gown will stretch vertically under its own weight for 24 to 48 hours after seam assembly:
+A bias-cut gown stretches vertically under its own weight for 24 to 48 hours after seam assembly:
 1. Complete side seams and bodice attachment.
 2. Hang the garment on a padded dress form for a minimum of 36 hours.
 3. Level and mark the hemline with a chalk atomizer while on the form.
@@ -84,7 +84,7 @@ A bias-cut gown will stretch vertically under its own weight for 24 to 48 hours 
     pastel: "bg-pastel-sage/40",
     excerpt: "Why high-GSM Belgian flax linen demands traditional floating haircloth interfacing and steam molding.",
     content: `
-Pure Belgian flax linen yields structured yet breathable summer tailoring. Because linen fibers lack the natural crimp and elasticity of wool, jacket shaping depends entirely on traditional internal canvas construction.
+Pure Belgian flax linen yields structured yet breathable summer tailoring. Because linen fibers lack the natural crimp and elasticity of wool, jacket shaping depends entirely on internal canvas construction.
 
 ## 1. Dimensional Pre-Shrinking
 Flax fibers absorb up to 20% of their dry weight in ambient moisture before feeling damp:
@@ -93,7 +93,7 @@ Flax fibers absorb up to 20% of their dry weight in ambient moisture before feel
 - Steam-press thoroughly on high heat (200°C) with heavy mechanical pressure to pre-shrink and stabilize the weave.
 
 ## 2. Floating Horsehair Chest Canvas
-Never fuse synthetic interfacings to pure linen suiting. Fused interlinings bubble under humidity and alter linen's natural drape. Instead, construct a floating chest piece from 180 GSM unbleached horsehair canvas pad-stitched by hand to the linen lapel roll line.
+Avoid synthetic fusible interfacings on pure linen suiting. Fused interlinings bubble under humidity and alter linen's natural drape. Instead, construct a floating chest piece from 180 GSM unbleached horsehair canvas pad-stitched by hand to the linen lapel roll line.
     `
   },
   "fabric-gsm-weight-selection-guide": {
@@ -107,7 +107,7 @@ Never fuse synthetic interfacings to pure linen suiting. Fused interlinings bubb
     pastel: "bg-pastel-sand/40",
     excerpt: "The definitive weight and density breakdown: how to calibrate fabric GSM against pattern silhouettes from shirting to heavy overcoats.",
     content: `
-GSM (Grams per Square Meter) is the metric gold standard of textile density. Selecting the wrong GSM compromises garment silhouette regardless of sewing precision.
+GSM (Grams per Square Meter) is the metric standard of textile density. Selecting the wrong GSM compromises garment silhouette regardless of sewing precision.
 
 ## The Atelier GSM Classification Matrix
 
@@ -159,7 +159,7 @@ Use pure pipeclay chalk. Machine basting shifts heavy twill; hand-baste chevrons
     pastel: "bg-pastel-rose/40",
     excerpt: "Understanding metamerism, liquor ratio variance in artisan dye vats, and why fractional continuous yardage guarantees gown perfection.",
     content: `
-Even in Europe's most renowned mills, natural fibers absorb dye according to seasonal temperature, water hardness, and yarn tension. Two bolts of identical silk dyed in consecutive vats often exhibit chromatic metamerism—appearing identical under daylight but clashing under evening tungsten light.
+Even in Europe's most renowned mills, natural fibers absorb dye according to seasonal temperature, water hardness, and yarn tension. Two bolts of identical silk dyed in consecutive vats often exhibit chromatic metamerism: appearing identical under daylight but clashing under evening tungsten light.
 
 ## 1. The Cost of Roll Breaks in Couture
 When cutting continuous 4-meter train gowns or tiered ballgowns, piecing panels from two different bolts risks visible shading along side seams. 
@@ -232,13 +232,13 @@ Unlike chemical acid-retting used in mass production, Normandy flax is left spre
 Giza 45 is celebrated as the queen of Egyptian cottons, boasting extra-long staple fibers spun into silky, high-density poplin weaves.
 
 ## 1. Seam Precision: 22 to 24 Stitches Per Inch
-True bespoke shirting requires ultra-high stitch density:
+True bespoke shirting requires high stitch density:
 - Calibrate your machine to 22-24 SPI (Stitches Per Inch).
 - Pair with fine 120-weight mercerized Egyptian cotton thread.
 - Needle: Schmetz Microtex 60/8 or 70/10 sharp point.
 
 ## 2. Single-Needle Flat-Felled Seams
-Never use mock overlock seams on luxury shirting. Construct 3mm single-needle flat-felled side seams. This encases raw edges, providing clean internal lines and unparalleled skin comfort.
+Avoid mock overlock seams on luxury shirting. Construct 3mm single-needle flat-felled side seams. This encases raw edges, providing clean internal lines and long-term durability.
     `
   },
   "the-swatch-sampling-protocol": {
@@ -256,7 +256,7 @@ Digital screens display RGB pixels; your hands understand tactile structure. Bef
 
 ## The 5-Point Inspection Checklist
 1. **Bias Recovery Test**: Pull the swatch firmly along the 45-degree angle. Observe how quickly the weave snaps back to square.
-2. **Steam Shrinkage Calibration**: Trace the dry swatch onto paper, steam aggressively for 15 seconds, let dry, and measure dimensional delta.
+2. **Steam Shrinkage Calibration**: Trace the dry swatch onto paper, steam for 15 seconds, let dry, and measure dimensional delta.
 3. **Drape Fall Velocity**: Hold the swatch at one corner and release; observe whether the fabric breaks into soft ripples (fluid) or sharp planes (structured).
 4. **Color Accuracy Under North Light**: Inspect the swatch under diffuse natural northern daylight between 10 AM and 2 PM.
 5. **Needle Penetration Test**: Hand-push your intended sewing needle through double layers to verify zero yarn snagging.
@@ -287,7 +287,7 @@ A machine-stitched baby hem adds stiffness to fluid silk gowns. True haute coutu
 2. Dampen thumb and index finger slightly.
 3. Roll 3mm to 4mm of raw silk tightly toward the wrong side between your fingers.
 4. Take a tiny 1-thread bite through the main silk ground, then slip the needle 5mm inside the rolled cylinder.
-5. Pull gently every 4 stitches to form a round, supple, pearl-like edge that moves with the gown.
+5. Pull gently every 4 stitches to form a round, supple edge that moves naturally with the gown.
     `
   },
   "architectural-velvet-pile-direction": {
@@ -301,13 +301,13 @@ A machine-stitched baby hem adds stiffness to fluid silk gowns. True haute coutu
     pastel: "bg-pastel-sand/40",
     excerpt: "Nap-up vs. nap-down optical depth, needle boards, and seam basting to prevent velvet creep under machine feed.",
     content: `
-Cotton velvet is an opulent three-dimensional textile consisting of a woven backing and upright cut pile fibers. Incorrect cutting or pressing destroys velvet irrecoverably.
+Cotton velvet is an opulent three-dimensional textile consisting of a woven backing and upright cut pile fibers. Incorrect cutting or pressing damages velvet permanently.
 
 ## 1. Determining Nap Direction
 Run your hand flat across the pile surface:
 - **Nap Down (Smooth)**: Reflects light, giving a silvery sheen and standard drape.
 - **Nap Up (Rough)**: Absorbs light, yielding deep, rich, saturated color (preferred for couture evening jackets).
-- **Rule**: All pattern pieces must point in the exact same nap direction—never rotate pieces 180 degrees.
+- **Rule**: All pattern pieces must point in the exact same nap direction, never rotate pieces 180 degrees.
 
 ## 2. The Needle Board Pressing Mandate
 Never place a hot iron directly onto velvet on a flat ironing board; doing so crushes the pile permanently. Use a wire needle board (velvet board) where the fabric pile sinks between flexible metal needles while steam penetrates from the back.
@@ -326,10 +326,10 @@ Never place a hot iron directly onto velvet on a flat ironing board; doing so cr
     pastel: "bg-pastel-rose/40",
     excerpt: "Why pure silk, linen, and wool decompose gracefully while polyester microplastics contaminate waterways for centuries.",
     content: `
-Fast fashion built an empire on cheap synthetic petroleum blends—polyester, nylon, and acrylic—disguised under tactile softening treatments. At Fabriclicious, our textile archive is dedicated exclusively to natural, unadulterated fibers.
+Fast fashion was built on cheap synthetic petroleum blends—polyester, nylon, and acrylic—disguised under temporary softening treatments. At Fabriclicious, our textile archive is dedicated exclusively to natural, unadulterated fibers.
 
 ## 1. The Breathability Dynamic
-Natural fibers breathe through organic micro-pores. Wool regulates thermal micro-climates; linen dissipates body heat rapidly; silk provides year-round insulation. Synthetics trap perspiration against the skin, fostering odor and moisture retention.
+Natural fibers breathe through organic micro-pores. Wool regulates thermal micro-climates; linen dissipates body heat rapidly; silk provides year-round insulation. Synthetics trap perspiration against the skin, retaining odor and moisture.
 
 ## 2. Soil-to-Soil Circularity
 Pure natural textiles return to the earth. A 100% Normandy linen garment or pure wool coat will fully biodegrade in composting soil within months, replenishing natural nutrients rather than shedding non-biodegradable microplastics.
@@ -349,11 +349,11 @@ Pure natural textiles return to the earth. A 100% Normandy linen garment or pure
 Building an enduring bespoke wardrobe does not require dozens of garments. It requires five quintessential textiles sourced from the world's most storied looms.
 
 ## The Core 5 Fabric Foundations
-1. **French Normandy Linen (220 GSM)**: The timeless foundational fabric for relaxed summer tailoring, shirting, and chore coats.
+1. **French Normandy Linen (220 GSM)**: Foundational fabric for relaxed summer tailoring, shirting, and chore coats.
 2. **Como Mulberry Silk Charmeuse (85 GSM)**: For bias slip dresses, liquid cowl necklines, and luxury blouse foundations.
-3. **Giza 45 Cotton Poplin (120 GSM)**: The crisp, razor-sharp standard for bespoke shirting and classic structured cuffs.
+3. **Giza 45 Cotton Poplin (120 GSM)**: The crisp standard for bespoke shirting and classic structured cuffs.
 4. **Super 120s Worsted Suiting (280 GSM)**: The year-round backbone for tailored trousers, blazers, and structured pencil skirts.
-5. **Scottish Harris Tweed (480 GSM)**: The rugged, lifetime-guaranteed woolen cloth for heritage outerwear and winter waistcoats.
+5. **Scottish Harris Tweed (480 GSM)**: Rugged, lifetime-grade woolen cloth for heritage outerwear and winter waistcoats.
 
 All five textiles are available for immediate swatch curation or continuous unbroken cuts starting at 0.5 meters in our digital archive.
     `
