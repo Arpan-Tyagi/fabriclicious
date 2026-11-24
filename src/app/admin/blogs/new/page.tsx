@@ -15,7 +15,7 @@ export default function NewBlogStudio() {
     try {
       const generated = await generateArticle(topic);
       setContent(generated);
-    } catch (e) {
+    } catch {
       alert("AI Generation failed.");
     }
     setIsGenerating(false);

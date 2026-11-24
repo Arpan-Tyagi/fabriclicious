@@ -101,6 +101,8 @@ export function CatalogClient({ initialProducts }: { initialProducts: any[] }) {
                     <motion.img 
                       src={product.image} 
                       alt={product.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-110"
                     />
                   </div>

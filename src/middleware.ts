@@ -15,6 +15,19 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next({ request });
   }
 
+  const pathname = request.nextUrl.pathname;
+  const isAdminRoute = pathname.startsWith('/admin');
+  const isAccountRoute = pathname.startsWith('/account');
+
+  // Check if any Supabase auth cookies are present
+  const allCookies = request.cookies.getAll();
+  const hasAuthCookies = allCookies.some(c => c.name.startsWith('sb-') && c.name.includes('-auth-token'));
+
+  // FAST PATH: Anonymous public requests skip external Supabase network calls completely!
+  if (!isAdminRoute && !isAccountRoute && !hasAuthCookies) {
+    return supabaseResponse;
+  }
+
   const supabase = createServerClient(
     supabaseUrl,
     supabaseKey,
@@ -24,7 +37,7 @@ export async function middleware(request: NextRequest) {
           return request.cookies.getAll()
         },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) => request.cookies.set(name, value))
+          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
           supabaseResponse = NextResponse.next({
             request,
           })
@@ -36,13 +49,13 @@ export async function middleware(request: NextRequest) {
     }
   )
 
-  // refreshing the auth token
+  // Refresh the auth token only when relevant
   const {
     data: { user },
   } = await supabase.auth.getUser()
 
-  // protect admin routes
-  if (request.nextUrl.pathname.startsWith('/admin')) {
+  // Protect admin routes
+  if (isAdminRoute) {
     if (!user) {
       return NextResponse.redirect(new URL('/login', request.url))
     }
@@ -57,6 +70,11 @@ export async function middleware(request: NextRequest) {
     if (!profile || profile.role !== 'admin') {
       return NextResponse.redirect(new URL('/', request.url))
     }
+  }
+
+  // Protect patron account route
+  if (isAccountRoute && !user) {
+    return NextResponse.redirect(new URL('/login', request.url))
   }
 
   return supabaseResponse

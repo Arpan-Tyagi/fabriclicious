@@ -3,7 +3,7 @@ import { CatalogClient } from "@/components/CatalogClient";
 import { CategoryEditorial } from "@/components/CategoryEditorial";
 import { CATEGORY_EDITORIAL_DATA } from "@/data/categoryEditorial";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;

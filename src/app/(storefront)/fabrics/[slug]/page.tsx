@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { MacroWeaveLoupe } from "@/components/MacroWeaveLoupe";
 import { FabricCutSelector } from "@/components/FabricCutSelector";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

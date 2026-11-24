@@ -1,28 +1,37 @@
 "use client";
 
 import { useEffect, ReactNode } from "react";
-import Lenis from "lenis";
 
 export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      wheelMultiplier: 0.85,
-    });
+    if (typeof window === "undefined") return;
 
+    // Do not initialize Lenis on touch-only mobile devices to save main-thread frame budget
+    const isTouchOnly = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    if (isTouchOnly) return;
+
+    let lenisInstance: any = null;
     let rafId: number;
 
-    function raf(time: number) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
+    // Dynamically import Lenis to decouple it from the critical first-load bundle
+    import("lenis").then(({ default: Lenis }) => {
+      lenisInstance = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        wheelMultiplier: 0.85,
+      });
 
-    rafId = requestAnimationFrame(raf);
+      function raf(time: number) {
+        lenisInstance?.raf(time);
+        rafId = requestAnimationFrame(raf);
+      }
+
+      rafId = requestAnimationFrame(raf);
+    });
 
     return () => {
-      cancelAnimationFrame(rafId);
-      lenis.destroy();
+      if (rafId) cancelAnimationFrame(rafId);
+      lenisInstance?.destroy();
     };
   }, []);
 

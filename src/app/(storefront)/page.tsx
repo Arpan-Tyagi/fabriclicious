@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { AtelierHeroSection } from "@/components/AtelierHeroSection";
-import { motion } from "motion/react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -126,6 +125,8 @@ export default function Home() {
                   <img
                     src={cat.image}
                     alt={cat.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] transform-gpu group-hover:scale-105"
                   />
                   {/* Subtle tonal gradient to ensure text readability */}

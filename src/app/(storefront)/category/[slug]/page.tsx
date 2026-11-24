@@ -5,7 +5,13 @@ import { CategoryEditorial } from "@/components/CategoryEditorial";
 import { CatalogClient } from "@/components/CatalogClient";
 import { CATEGORY_EDITORIAL_DATA } from "@/data/categoryEditorial";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  return Object.keys(CATEGORY_EDITORIAL_DATA).map((slug) => ({
+    slug,
+  }));
+}
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;

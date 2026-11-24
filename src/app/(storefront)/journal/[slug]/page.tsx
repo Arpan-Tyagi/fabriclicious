@@ -3,6 +3,14 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { ATELIER_JOURNAL_ARTICLES } from "@/data/journalArticles";
 
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  return Object.keys(ATELIER_JOURNAL_ARTICLES).map((slug) => ({
+    slug,
+  }));
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const article = ATELIER_JOURNAL_ARTICLES[slug];

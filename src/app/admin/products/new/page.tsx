@@ -16,7 +16,7 @@ export default function NewProductStudio() {
     try {
       const generated = await generateProductSpecs(raw);
       setSpecs(generated);
-    } catch (e) {
+    } catch {
       alert("AI Generation failed.");
     }
     setIsGenerating(false);

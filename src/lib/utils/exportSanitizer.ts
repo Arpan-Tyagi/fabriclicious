@@ -6,7 +6,7 @@
  * using the Excel-resistant quoted tab-prefix approach ("\t=...").
  */
 
-const FORMULA_TRIGGERS = ['=', '+', '-', '@', '\t', '\r', '\n', '＝', '＋', '－', '＠'];
+export const FORMULA_TRIGGERS = ['=', '+', '-', '@', '\t', '\r', '\n', '＝', '＋', '－', '＠'];
 const FORMULA_REGEX = /(?:^|["',])\s*[=+\-@\t\r\n＝＋－＠]/;
 
 /**

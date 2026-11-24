@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { FloatingChat } from "@/components/FloatingChat";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { PagePreloader } from "@/components/PagePreloader";
+import { FloatingChatWrapper } from "@/components/FloatingChatWrapper";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -144,7 +144,7 @@ export default function RootLayout({
         <PagePreloader />
         <SmoothScrollProvider>
           {children}
-          <FloatingChat />
+          <FloatingChatWrapper />
         </SmoothScrollProvider>
       </body>
     </html>

@@ -2,13 +2,22 @@
 
 import { ReactNode, useState } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { ShoppingBag, Search, Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { CartDrawer } from "@/components/CartDrawer";
 import { useCartStore } from "@/store/cartStore";
 import { CursorProvider } from "@/context/CursorContext";
-import { CustomCursor } from "@/components/CustomCursor";
 import { BrandLogo } from "@/components/BrandLogo";
+
+const CartDrawer = dynamic(
+  () => import("@/components/CartDrawer").then((mod) => mod.CartDrawer),
+  { ssr: false }
+);
+
+const CustomCursor = dynamic(
+  () => import("@/components/CustomCursor").then((mod) => mod.CustomCursor),
+  { ssr: false }
+);
 
 export default function StorefrontLayout({ children }: { children: ReactNode }) {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
