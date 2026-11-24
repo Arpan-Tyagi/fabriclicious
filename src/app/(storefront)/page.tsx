@@ -116,7 +116,7 @@ export default function Home() {
               }`}
             >
               <Link
-                href={`/fabrics?category=${cat.slug}`}
+                href={`/category/${cat.slug}`}
                 className={`group relative block w-full h-[65vh] md:h-[58vh] overflow-hidden rounded-2xl bg-limestone border border-hemp transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:shadow-[0_20px_45px_-12px_rgba(28,26,24,0.12)] hover:border-loam flex flex-col justify-end ${
                   idx === 0 || idx === 7 ? 'md:h-[86vh]' : ''
                 }`}

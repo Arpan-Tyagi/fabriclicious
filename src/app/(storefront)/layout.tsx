@@ -26,12 +26,12 @@ export default function StorefrontLayout({ children }: { children: ReactNode }) 
         {/* Global Announcement Utility Bar (Highlighted Section) */}
         <div className="w-full bg-loam text-linen py-2 px-4 overflow-hidden border-b border-hemp shadow-sm">
           <div className="flex whitespace-nowrap animate-marquee-slow font-mono text-[10px] uppercase tracking-widest items-center gap-10">
-            <span>// BESPOKE CONTINUOUS CUTS FROM 0.5 METERS. SWATCH SAMPLING FEES ARE 100% CREDITED AGAINST YOUR CONTINUOUS YARDAGE ORDER.</span>
-            <span>// DIRECT MILL PROVENANCE: FRENCH NORMANDY LINENS, COMO SILK SATINS, AND YORKSHIRE WORSTED WOOLS.</span>
-            <span>// SINGLE-DYE LOT INTEGRITY: CONTINUOUS UNBROKEN RUNS GUARANTEED.</span>
-            <span>// BESPOKE CONTINUOUS CUTS FROM 0.5 METERS. SWATCH SAMPLING FEES ARE 100% CREDITED AGAINST YOUR CONTINUOUS YARDAGE ORDER.</span>
-            <span>// DIRECT MILL PROVENANCE: FRENCH NORMANDY LINENS, COMO SILK SATINS, AND YORKSHIRE WORSTED WOOLS.</span>
-            <span>// SINGLE-DYE LOT INTEGRITY: CONTINUOUS UNBROKEN RUNS GUARANTEED.</span>
+            <span>{"//"} BESPOKE CONTINUOUS CUTS FROM 0.5 METERS. SWATCH SAMPLING FEES ARE 100% CREDITED AGAINST YOUR CONTINUOUS YARDAGE ORDER.</span>
+            <span>{"//"} DIRECT MILL PROVENANCE: FRENCH NORMANDY LINENS, COMO SILK SATINS, AND YORKSHIRE WORSTED WOOLS.</span>
+            <span>{"//"} SINGLE-DYE LOT INTEGRITY: CONTINUOUS UNBROKEN RUNS GUARANTEED.</span>
+            <span>{"//"} BESPOKE CONTINUOUS CUTS FROM 0.5 METERS. SWATCH SAMPLING FEES ARE 100% CREDITED AGAINST YOUR CONTINUOUS YARDAGE ORDER.</span>
+            <span>{"//"} DIRECT MILL PROVENANCE: FRENCH NORMANDY LINENS, COMO SILK SATINS, AND YORKSHIRE WORSTED WOOLS.</span>
+            <span>{"//"} SINGLE-DYE LOT INTEGRITY: CONTINUOUS UNBROKEN RUNS GUARANTEED.</span>
           </div>
         </div>
 

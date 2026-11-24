@@ -116,7 +116,7 @@ export default async function ProductDetailPage({
           <div className="mb-12">
             <div className="font-mono text-[11px] md:text-xs uppercase tracking-[0.2em] text-loam mb-6 flex items-center gap-3">
               <span>100% NATURAL LUXURY FIBER</span>
-              <span className="text-hemp">//</span>
+              <span className="text-hemp">{"//"}</span>
               <span>EUROPEAN HERITAGE MILLS</span>
             </div>
             <h1 className="font-serif text-5xl md:text-7xl tracking-tighter mb-6 leading-none">

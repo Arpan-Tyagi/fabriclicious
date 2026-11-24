@@ -27,6 +27,38 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+// Lightweight inline markdown formatter for links and bolding
+function renderFormattedText(text: string) {
+  const regex = /(\[.*?\]\(.*?\)|\*\*.*?\*\*)/g;
+  const parts = text.split(regex);
+
+  return parts.map((part, i) => {
+    if (part.startsWith("[") && part.includes("](") && part.endsWith(")")) {
+      const match = part.match(/\[(.*?)\]\((.*?)\)/);
+      if (match) {
+        const [, label, url] = match;
+        return (
+          <Link
+            key={i}
+            href={url}
+            className="text-loam font-medium underline underline-offset-4 decoration-loam/40 hover:text-umber hover:decoration-umber transition-colors"
+          >
+            {label}
+          </Link>
+        );
+      }
+    }
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={i} className="font-semibold text-umber">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+}
+
 export default async function JournalDetailPage({
   params,
 }: {
@@ -54,6 +86,7 @@ export default async function JournalDetailPage({
   const readTime = article?.readTime || "7 min read";
   const publishDay = article?.publishDay || "Archive";
   const publishSlot = article?.publishSlot || "Morning";
+  const publishDate = article?.publishDate || (dbBlog?.created_at ? dbBlog.created_at.split("T")[0] : "2026-11-24");
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -61,8 +94,8 @@ export default async function JournalDetailPage({
     headline: title,
     description: excerpt,
     url: `https://www.fabriclicious.com/journal/${slug}`,
-    datePublished: "2026-11-23T08:00:00Z",
-    dateModified: "2026-11-23T08:00:00Z",
+    datePublished: `${publishDate}T08:00:00Z`,
+    dateModified: `${publishDate}T08:00:00Z`,
     author: {
       "@type": "Organization",
       name: "Fabriclicious Master Archivists",
@@ -101,13 +134,13 @@ export default async function JournalDetailPage({
 
         {/* Masterclass Header */}
         <header className="space-y-6 border-b border-hemp pb-10">
-          <div className="flex items-center gap-4 text-xs font-mono text-loam">
+          <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-loam">
             <span className="uppercase tracking-widest bg-loam/10 px-3 py-1 rounded-full border border-loam/20">
-              {publishDay} // {publishSlot} Masterclass
+              {publishDate} {"//"} {publishDay} {"//"} {publishSlot} Masterclass
             </span>
-            <span className="text-hemp">//</span>
+            <span className="text-hemp">{"//"}</span>
             <span className="uppercase tracking-widest">{category}</span>
-            <span className="text-hemp">//</span>
+            <span className="text-hemp">{"//"}</span>
             <span>{readTime}</span>
           </div>
 
@@ -120,13 +153,24 @@ export default async function JournalDetailPage({
           </p>
         </header>
 
-        {/* Markdown-style Clean Content */}
+        {/* Markdown-style Clean Content with Enhanced Formatting */}
         <div className="prose prose-neutral max-w-none font-sans text-umber/90 leading-relaxed space-y-8 text-base md:text-lg font-light">
           {content
             .trim()
             .split("\n\n")
             .map((paragraph, idx) => {
               const trimmed = paragraph.trim();
+
+              if (trimmed.startsWith("### ")) {
+                return (
+                  <h3
+                    key={idx}
+                    className="font-serif text-xl md:text-2xl text-umber tracking-tight pt-4"
+                  >
+                    {trimmed.replace("### ", "")}
+                  </h3>
+                );
+              }
 
               if (trimmed.startsWith("## ")) {
                 return (
@@ -148,7 +192,7 @@ export default async function JournalDetailPage({
                 return (
                   <ul key={idx} className="list-disc pl-6 space-y-2 text-base text-umber/80">
                     {items.map((it, i) => (
-                      <li key={i}>{it}</li>
+                      <li key={i}>{renderFormattedText(it)}</li>
                     ))}
                   </ul>
                 );
@@ -199,7 +243,7 @@ export default async function JournalDetailPage({
 
               return (
                 <p key={idx} className="leading-relaxed">
-                  {trimmed}
+                  {renderFormattedText(trimmed)}
                 </p>
               );
             })}

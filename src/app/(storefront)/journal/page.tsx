@@ -3,9 +3,9 @@ import { createClient } from "@/lib/supabase/server";
 import { ATELIER_JOURNAL_ARTICLES, JournalArticle } from "@/data/journalArticles";
 
 export const metadata = {
-  title: "Editorial Journal & Sartorial Masterclasses | Fabriclicious Atelier",
+  title: "Editorial Journal & Sourcing Masterclasses | Fabriclicious Atelier",
   description:
-    "Daily haute couture masterclasses, textile physics manuals, needle calibrations, and bespoke tailoring guides curated by Mithila Enterprises.",
+    "Daily haute couture masterclasses, textile physics manuals, needle calibrations, and bespoke fabric sourcing guides curated by Mithila Enterprises.",
   alternates: {
     canonical: "/journal",
   },
@@ -21,8 +21,8 @@ export default async function StorefrontJournalPage() {
     .eq("is_published", true)
     .order("created_at", { ascending: false });
 
-  // Fallback to our 14 editorial masterclasses
-  const articles: JournalArticle[] =
+  // Fallback to our masterclasses, sorted in reverse chronological order
+  const rawArticles: JournalArticle[] =
     dbBlogs && dbBlogs.length > 0
       ? dbBlogs.map((b) => ({
           slug: b.slug,
@@ -32,11 +32,14 @@ export default async function StorefrontJournalPage() {
           excerpt: b.excerpt,
           publishDay: "Archived",
           publishSlot: "Morning" as const,
+          publishDate: b.created_at ? b.created_at.split("T")[0] : "2026-11-24",
           targetKeyword: "bespoke fabric tailoring",
           pastel: "bg-pastel-sky/40",
           content: b.content_markdown,
         }))
       : Object.values(ATELIER_JOURNAL_ARTICLES);
+
+  const articles = [...rawArticles].sort((a, b) => b.publishDate.localeCompare(a.publishDate));
 
   const featured = articles[0];
   const gridArticles = articles.slice(1);
@@ -54,7 +57,7 @@ export default async function StorefrontJournalPage() {
             <span className="italic font-serif font-normal text-umber/80">Textile Physics.</span>
           </h1>
           <p className="font-sans text-base text-umber/70 leading-relaxed font-light">
-            Twice daily masterclasses on grainline orientation, drape dynamics, seam stabilization, and needle gauge calibrations for discerning couturiers.
+            Twice daily masterclasses on grainline orientation, drape dynamics, seam stabilization, and wholesale sourcing protocols for discerning couturiers.
           </p>
         </div>
 
@@ -63,9 +66,9 @@ export default async function StorefrontJournalPage() {
           <Link href={`/journal/${featured.slug}`} className="block group">
             <div className="bg-limestone border border-hemp rounded-3xl p-8 md:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center group-hover:border-loam/50 transition-colors duration-300">
               <div className="lg:col-span-7 space-y-4">
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   <span className="font-mono text-[10px] uppercase tracking-wider text-loam bg-loam/10 px-3 py-1 rounded-full border border-loam/30">
-                    {featured.publishDay} // {featured.publishSlot} Masterclass
+                    {featured.publishDate} {"//"} {featured.publishDay} {"//"} {featured.publishSlot}
                   </span>
                   <span className="font-mono text-xs text-umber/50">{featured.readTime}</span>
                 </div>
@@ -89,7 +92,7 @@ export default async function StorefrontJournalPage() {
                     &ldquo;Haute Couture begins at the loom.&rdquo;
                   </span>
                   <p className="font-mono text-[10px] uppercase text-umber/50 tracking-widest">
-                    {featured.category} // Atelier Protocol
+                    {featured.category} {"//"} Atelier Protocol
                   </p>
                 </div>
               </div>
@@ -101,7 +104,7 @@ export default async function StorefrontJournalPage() {
         <div className="space-y-8">
           <div className="flex items-center justify-between border-b border-hemp pb-4">
             <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-loam">
-              This Week&apos;s 14 Atelier Masterclasses (2 Published Daily)
+              Atelier Masterclasses &amp; Sourcing Protocols
             </h3>
             <span className="font-mono text-[11px] text-umber/60 uppercase">
               {articles.length} Volumes Available
@@ -118,7 +121,7 @@ export default async function StorefrontJournalPage() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between text-xs font-mono text-umber/50">
                     <span className="text-loam font-medium">
-                      {article.publishDay} // {article.publishSlot}
+                      {article.publishDate} {"//"} {article.publishDay}
                     </span>
                     <span>{article.readTime}</span>
                   </div>
