@@ -13,7 +13,14 @@ export const metadata = {
 
 export const revalidate = 3600;
 
-export default async function StorefrontJournalPage() {
+interface JournalPageProps {
+  searchParams?: Promise<{ category?: string }>;
+}
+
+export default async function StorefrontJournalPage({ searchParams }: JournalPageProps) {
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+  const activeCategory = resolvedSearchParams?.category;
+
   const supabase = await createClient();
   const { data: dbBlogs } = await supabase
     .from("blog_posts")
@@ -21,7 +28,7 @@ export default async function StorefrontJournalPage() {
     .eq("is_published", true)
     .order("created_at", { ascending: false });
 
-  // Fallback to our masterclasses, sorted in reverse chronological order
+  // Fallback to our masterclasses, sorted in reverse chronological order with slot tie-breaking
   const rawArticles: JournalArticle[] =
     dbBlogs && dbBlogs.length > 0
       ? dbBlogs.map((b) => ({
@@ -39,10 +46,25 @@ export default async function StorefrontJournalPage() {
         }))
       : Object.values(ATELIER_JOURNAL_ARTICLES);
 
-  const articles = [...rawArticles].sort((a, b) => b.publishDate.localeCompare(a.publishDate));
+  const sortedArticles = [...rawArticles].sort((a, b) => {
+    const dateComp = b.publishDate.localeCompare(a.publishDate);
+    if (dateComp !== 0) return dateComp;
+    const slotWeight = (slot: string) => (slot === "Evening" ? 2 : 1);
+    return slotWeight(b.publishSlot) - slotWeight(a.publishSlot);
+  });
 
-  const featured = articles[0];
-  const gridArticles = articles.slice(1);
+  // Extract unique categories for filter pills
+  const categories = [
+    "All",
+    ...Array.from(new Set(rawArticles.map((a) => a.category).filter(Boolean))),
+  ];
+
+  const filteredArticles = activeCategory && activeCategory !== "All"
+    ? sortedArticles.filter((a) => a.category === activeCategory)
+    : sortedArticles;
+
+  const featured = !activeCategory || activeCategory === "All" ? filteredArticles[0] : null;
+  const gridArticles = featured ? filteredArticles.slice(1) : filteredArticles;
 
   return (
     <div className="min-h-screen bg-linen py-16 px-6 md:px-12 pt-32">
@@ -61,7 +83,7 @@ export default async function StorefrontJournalPage() {
           </p>
         </div>
 
-        {/* Featured Hero Article */}
+        {/* Featured Hero Article (Shown on 'All' view) */}
         {featured && (
           <Link href={`/journal/${featured.slug}`} className="block group">
             <div className="bg-limestone border border-hemp rounded-3xl p-8 md:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center group-hover:border-loam/50 transition-colors duration-300">
@@ -100,17 +122,38 @@ export default async function StorefrontJournalPage() {
           </Link>
         )}
 
-        {/* 2 Daily Masterclasses Grid */}
+        {/* Masterclasses Grid with Category Filtering */}
         <div className="space-y-8">
-          <div className="flex items-center justify-between border-b border-hemp pb-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-hemp pb-4 gap-4">
             <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-loam">
               Atelier Masterclasses &amp; Sourcing Protocols
             </h3>
             <span className="font-mono text-[11px] text-umber/60 uppercase">
-              {articles.length} Volumes Available
+              {filteredArticles.length} of {sortedArticles.length} Volumes Shown
             </span>
           </div>
 
+          {/* Category Filter Pills */}
+          <div className="flex flex-wrap items-center gap-2">
+            {categories.map((cat) => {
+              const isSelected = (!activeCategory && cat === "All") || activeCategory === cat;
+              return (
+                <Link
+                  key={cat}
+                  href={cat === "All" ? "/journal" : `/journal?category=${encodeURIComponent(cat)}`}
+                  className={`font-mono text-xs uppercase tracking-wider px-4 py-1.5 rounded-full border transition-all duration-200 ${
+                    isSelected
+                      ? "bg-loam text-linen border-loam shadow-sm"
+                      : "bg-limestone/50 text-umber/70 border-hemp hover:border-loam/50 hover:text-umber"
+                  }`}
+                >
+                  {cat}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Articles Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {gridArticles.map((article) => (
               <Link
