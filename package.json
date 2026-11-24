@@ -28,11 +28,13 @@
     "react-dom": "19.0.0-rc-cd22717c-20241013",
     "react-phone-number-input": "^3.4.18",
     "resend": "^6.28.0",
+    "server-only": "^0.0.1",
     "zod": "^4.6.5",
     "zustand": "^5.0.15"
   },
   "devDependencies": {
     "@opennextjs/cloudflare": "^1.20.6",
+    "@playwright/test": "^1.65.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

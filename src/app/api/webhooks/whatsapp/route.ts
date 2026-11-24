@@ -27,7 +27,13 @@ export async function POST(req: NextRequest) {
     if (!signature) return new NextResponse("Missing signature", { status: 400 });
 
     const expectedSignature = `sha256=${crypto.createHmac("sha256", env.META_APP_SECRET).update(rawBody).digest("hex")}`;
-    if (expectedSignature !== signature) return new NextResponse("Invalid signature", { status: 400 });
+    
+    // Timing-safe comparison
+    const sigBuf = Buffer.from(signature, "utf-8");
+    const expBuf = Buffer.from(expectedSignature, "utf-8");
+    if (sigBuf.length !== expBuf.length || !crypto.timingSafeEqual(sigBuf, expBuf)) {
+      return new NextResponse("Invalid signature", { status: 400 });
+    }
 
     const body = JSON.parse(rawBody);
     

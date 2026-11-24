@@ -1,7 +1,15 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import { requireAdmin } from "@/lib/dal/auth";
+import { redirect } from "next/navigation";
 
 export default async function BlogsPage() {
+  try {
+    await requireAdmin();
+  } catch {
+    redirect("/login");
+  }
+
   const supabase = await createClient();
   const { data: blogs } = await supabase.from("blog_posts").select("*").order("created_at", { ascending: false });
 

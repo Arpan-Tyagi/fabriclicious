@@ -7,6 +7,9 @@ export default async function AccountPage() {
   const supabase = await createClient();
 
   const { data: { user } } = await supabase.auth.getUser();
+  const { data: profile } = user ? await supabase.from("profiles").select("customer_code").eq("id", user.id).single() : { data: null };
+  const customerCode = profile?.customer_code || "FAB-2026-000142";
+
   const { data: orders } = await supabase.from("orders").select("*, order_items(*)").order("created_at", { ascending: false });
   const { data: credits } = await supabase.from("swatch_credits").select("*");
 
@@ -21,7 +24,12 @@ export default async function AccountPage() {
         {/* Header Banner */}
         <div className="bg-limestone border border-hemp rounded-3xl p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-loam">Atelier Patron Portal</span>
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-xs uppercase tracking-widest text-loam">Atelier Patron Portal</span>
+              <span className="font-mono text-xs px-2.5 py-0.5 bg-umber/10 text-umber rounded-md border border-hemp font-semibold">
+                {customerCode}
+              </span>
+            </div>
             <h1 className="font-serif text-4xl text-umber tracking-tight mt-1">
               {user?.email ? user.email.split("@")[0] : "Haute Couture Member"}
             </h1>

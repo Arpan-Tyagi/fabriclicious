@@ -5,10 +5,13 @@ import { env } from "@/env";
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { requireAdmin } from "@/lib/dal/auth";
 
 const ai = new GoogleGenAI({ apiKey: env.GEMINI_API_KEY });
 
 export async function generateProductSpecs(rawDescription: string) {
+  // DAL Invariant: Verify admin privilege server-side
+  await requireAdmin();
   const prompt = `
     You are an expert luxury textile archivist. Analyze this raw fabric description:
     "${rawDescription}"
@@ -38,6 +41,9 @@ export async function generateProductSpecs(rawDescription: string) {
 }
 
 export async function createProduct(prevState: any, formData: FormData) {
+  // DAL Invariant: Verify admin privilege server-side
+  await requireAdmin();
+
   const supabase = await createClient();
   
   // Extract and parse dynamic fiber composition

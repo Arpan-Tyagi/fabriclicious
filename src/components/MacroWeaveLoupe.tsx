@@ -9,7 +9,7 @@ export function MacroWeaveLoupe({ imageSrc }: { imageSrc: string }) {
   const imageRef = useRef<HTMLImageElement | null>(null);
   const [isHovered, setIsHovered] = useState(false);
   const mousePos = useRef({ x: 0, y: 0 });
-  const prevMousePos = useRef({ x: -1, y: -1 });
+  const rafId = useRef<number | null>(null);
   const canvasSize = useRef({ w: 0, h: 0 });
 
   // Preload the high-res weave image into an offscreen buffer
@@ -48,13 +48,13 @@ export function MacroWeaveLoupe({ imageSrc }: { imageSrc: string }) {
     return () => observer.disconnect();
   }, []);
 
-  // 60fps render loop — only runs while hovered, never touches layout
-  useEffect(() => {
-    if (!isHovered) return;
-
-    let raf: number;
+  // Pure single-frame render function — called ONLY on actual pointer movement
+  const renderFrame = useCallback(() => {
     const limestone = canvasRef.current;
-    if (!limestone) return;
+    const img = imageRef.current;
+    const { w, h } = canvasSize.current;
+    if (!limestone || !img || !w || !h) return;
+
     const ctx = limestone.getContext("2d", { willReadFrequently: false });
     if (!ctx) return;
 
@@ -62,98 +62,109 @@ export function MacroWeaveLoupe({ imageSrc }: { imageSrc: string }) {
     const ZOOM = 4;
     const LOUPE_RADIUS = 160;
 
-    const render = () => {
-      const img = imageRef.current;
-      const { w, h } = canvasSize.current;
-      if (!img || !w || !h) {
-        raf = requestAnimationFrame(render);
-        return;
-      }
+    const mx = mousePos.current.x * dpr;
+    const my = mousePos.current.y * dpr;
+    const lr = LOUPE_RADIUS * dpr;
 
-      const mx = mousePos.current.x * dpr;
-      const my = mousePos.current.y * dpr;
-      
-      // Optimization: Only redraw if the mouse actually moved
-      if (prevMousePos.current && prevMousePos.current.x === mx && prevMousePos.current.y === my) {
-        raf = requestAnimationFrame(render);
-        return;
-      }
-      prevMousePos.current = { x: mx, y: my };
+    ctx.clearRect(0, 0, limestone.width, limestone.height);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
 
-      const lr = LOUPE_RADIUS * dpr;
+    // Circular clip for the loupe lens
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(mx, my, lr, 0, Math.PI * 2);
+    ctx.clip();
 
-      ctx.clearRect(0, 0, limestone.width, limestone.height);
-      ctx.imageSmoothingEnabled = true;
-      ctx.imageSmoothingQuality = "high";
+    // Source coordinates from the full-res image
+    const sx = (mousePos.current.x / w) * img.width;
+    const sy = (mousePos.current.y / h) * img.height;
+    const sWidth = (LOUPE_RADIUS * 2) / ZOOM;
+    const sHeight = (LOUPE_RADIUS * 2) / ZOOM;
+    const srcX = sx - sWidth / 2;
+    const srcY = sy - sHeight / 2;
 
-      // Circular clip for the loupe lens
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(mx, my, lr, 0, Math.PI * 2);
-      ctx.clip();
+    ctx.drawImage(
+      img,
+      srcX, srcY, sWidth, sHeight,
+      mx - lr, my - lr, lr * 2, lr * 2
+    );
 
-      // Source coordinates from the full-res image
-      const sx = (mousePos.current.x / w) * img.width;
-      const sy = (mousePos.current.y / h) * img.height;
-      const sWidth = (LOUPE_RADIUS * 2) / ZOOM;
-      const sHeight = (LOUPE_RADIUS * 2) / ZOOM;
-      const srcX = sx - sWidth / 2;
-      const srcY = sy - sHeight / 2;
+    // Optical pick-glass crosshair reticle lines
+    ctx.strokeStyle = "rgba(230, 226, 216, 0.45)"; // Reticle lines (Pumice Linen)
+    ctx.lineWidth = 1 * dpr;
 
-      ctx.drawImage(
-        img,
-        srcX, srcY, sWidth, sHeight,
-        mx - lr, my - lr, lr * 2, lr * 2
-      );
+    ctx.beginPath();
+    ctx.moveTo(mx - lr, my);
+    ctx.lineTo(mx + lr, my);
+    ctx.stroke();
 
-      // Optical pick-glass crosshair reticle lines
-      ctx.strokeStyle = "rgba(230, 226, 216, 0.45)"; // Reticle lines (Pumice Linen)
-      ctx.lineWidth = 1 * dpr;
+    ctx.beginPath();
+    ctx.moveTo(mx, my - lr);
+    ctx.lineTo(mx, my + lr);
+    ctx.stroke();
 
-      ctx.beginPath();
-      ctx.moveTo(mx - lr, my);
-      ctx.lineTo(mx + lr, my);
-      ctx.stroke();
+    // Inner concentric ring
+    ctx.beginPath();
+    ctx.arc(mx, my, lr * 0.4, 0, Math.PI * 2);
+    ctx.stroke();
 
-      ctx.beginPath();
-      ctx.moveTo(mx, my - lr);
-      ctx.lineTo(mx, my + lr);
-      ctx.stroke();
+    // Soft outer ring (#1C1A18/10)
+    ctx.lineWidth = 1 * dpr;
+    ctx.strokeStyle = "rgba(28, 26, 24, 0.1)"; // Umber 10%
+    ctx.beginPath();
+    ctx.arc(mx, my, lr + 1.5 * dpr, 0, Math.PI * 2);
+    ctx.stroke();
 
-      // Inner concentric ring
-      ctx.beginPath();
-      ctx.arc(mx, my, lr * 0.4, 0, Math.PI * 2);
-      ctx.stroke();
+    // Outer loupe ring (Spun Hemp)
+    ctx.lineWidth = 1 * dpr;
+    ctx.strokeStyle = "#CBC4B5"; // Hemp
+    ctx.beginPath();
+    ctx.arc(mx, my, lr, 0, Math.PI * 2);
+    ctx.stroke();
 
-      // Soft outer ring (#1C1A18/10)
-      ctx.lineWidth = 1 * dpr;
-      ctx.strokeStyle = "rgba(28, 26, 24, 0.1)"; // Umber 10%
-      ctx.beginPath();
-      ctx.arc(mx, my, lr + 1.5 * dpr, 0, Math.PI * 2);
-      ctx.stroke();
+    ctx.restore();
+    rafId.current = null;
+  }, []);
 
-      // Outer loupe ring (Spun Hemp)
-      ctx.lineWidth = 1 * dpr;
-      ctx.strokeStyle = "#CBC4B5"; // Hemp
-      ctx.beginPath();
-      ctx.arc(mx, my, lr, 0, Math.PI * 2);
-      ctx.stroke();
-
-      ctx.restore();
-
-      raf = requestAnimationFrame(render);
-    };
-
-    raf = requestAnimationFrame(render);
-
-    return () => cancelAnimationFrame(raf);
-  }, [isHovered]);
-
+  // Event-driven mouse move handler: requests a frame ONLY when mouse coordinate updates
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     mousePos.current = { 
       x: e.nativeEvent.offsetX, 
       y: e.nativeEvent.offsetY 
     };
+
+    if (rafId.current === null) {
+      rafId.current = requestAnimationFrame(renderFrame);
+    }
+  }, [renderFrame]);
+
+  // Clean up any pending RAF on unmount or unhover
+  useEffect(() => {
+    return () => {
+      if (rafId.current !== null) {
+        cancelAnimationFrame(rafId.current);
+        rafId.current = null;
+      }
+    };
+  }, []);
+
+  const handleMouseEnter = useCallback((e: React.MouseEvent) => {
+    setIsHovered(true);
+    handleMouseMove(e);
+  }, [handleMouseMove]);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
+    if (rafId.current !== null) {
+      cancelAnimationFrame(rafId.current);
+      rafId.current = null;
+    }
+    const limestone = canvasRef.current;
+    if (limestone) {
+      const ctx = limestone.getContext("2d");
+      if (ctx) ctx.clearRect(0, 0, limestone.width, limestone.height);
+    }
   }, []);
 
   return (
@@ -162,8 +173,8 @@ export function MacroWeaveLoupe({ imageSrc }: { imageSrc: string }) {
         ref={containerRef}
         className="relative w-full h-full overflow-hidden cursor-crosshair group bg-limestone bg-cover bg-center rounded-2xl border border-hemp shadow-[0_4px_20px_rgba(28,26,24,0.08)]"
         style={{ backgroundImage: `url(${imageSrc})` }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
       >
         <canvas

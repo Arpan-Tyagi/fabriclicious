@@ -1,9 +1,17 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import { requireAdmin } from "@/lib/dal/auth";
+import { redirect } from "next/navigation";
 
 export const revalidate = 0;
 
 export default async function DiscountsPage() {
+  try {
+    await requireAdmin();
+  } catch {
+    redirect("/login");
+  }
+
   const supabase = await createClient();
 
   // Try fetching discounts or provide default mock ledger

@@ -5,10 +5,13 @@ import { env } from "@/env";
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { requireAdmin } from "@/lib/dal/auth";
 
 const ai = new GoogleGenAI({ apiKey: env.GEMINI_API_KEY });
 
 export async function generateArticle(topic: string) {
+  // DAL Invariant: Verify admin privilege server-side
+  await requireAdmin();
   const prompt = `
     You are a master tailor and textile engineer writing an editorial article for a luxury fabric brand.
     Write a long-form, technical markdown article about: "${topic}".
@@ -25,6 +28,9 @@ export async function generateArticle(topic: string) {
 }
 
 export async function createBlog(prevState: any, formData: FormData) {
+  // DAL Invariant: Verify admin privilege server-side
+  await requireAdmin();
+
   const supabase = await createClient();
   
   const newBlog = {

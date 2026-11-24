@@ -1,9 +1,18 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import { requireAdmin } from "@/lib/dal/auth";
+import { redirect } from "next/navigation";
 
 export const revalidate = 0;
 
 export default async function AdminDashboardPage() {
+  // DAL Invariant: Verify admin privilege inside Server Component
+  try {
+    await requireAdmin();
+  } catch {
+    redirect("/login");
+  }
+
   const supabase = await createClient();
 
   // Fetch orders for metrics calculation

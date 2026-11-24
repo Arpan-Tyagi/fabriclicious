@@ -3,8 +3,12 @@
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
 import { OmnichannelDispatcher } from "@/lib/services/OmnichannelDispatcher";
+import { requireAdmin } from "@/lib/dal/auth";
 
 export async function updateOrderStatus(orderId: string, newStatus: string) {
+  // DAL Invariant: Verify admin privilege server-side
+  await requireAdmin();
+
   const supabase = await createClient();
   
   const { data: order } = await supabase.from('orders').select('*').eq('id', orderId).single();

@@ -158,7 +158,7 @@ export default async function JournalDetailPage({
           {content
             .trim()
             .split("\n\n")
-            .map((paragraph, idx) => {
+            .map((paragraph: string, idx: number) => {
               const trimmed = paragraph.trim();
 
               if (trimmed.startsWith("### ")) {
@@ -188,10 +188,10 @@ export default async function JournalDetailPage({
               }
 
               if (trimmed.startsWith("- ")) {
-                const items = trimmed.split("\n- ").map((item) => item.replace("- ", "").trim());
+                const items = trimmed.split("\n- ").map((item: string) => item.replace("- ", "").trim());
                 return (
                   <ul key={idx} className="list-disc pl-6 space-y-2 text-base text-umber/80">
-                    {items.map((it, i) => (
+                    {items.map((it: string, i: number) => (
                       <li key={i}>{renderFormattedText(it)}</li>
                     ))}
                   </ul>
@@ -201,11 +201,11 @@ export default async function JournalDetailPage({
               if (trimmed.startsWith("|")) {
                 const rows = trimmed
                   .split("\n")
-                  .filter((r) => !r.includes("---"))
-                  .map((r) =>
+                  .filter((r: string) => !r.includes("---"))
+                  .map((r: string) =>
                     r
                       .split("|")
-                      .map((c) => c.trim())
+                      .map((c: string) => c.trim())
                       .filter(Boolean)
                   );
 
@@ -218,7 +218,7 @@ export default async function JournalDetailPage({
                     <table className="w-full text-left text-xs font-mono">
                       <thead>
                         <tr className="border-b border-hemp text-loam uppercase tracking-wider">
-                          {headerRow.map((cell, cIdx) => (
+                          {headerRow.map((cell: string, cIdx: number) => (
                             <th key={cIdx} className="pb-3 pr-4 font-semibold">
                               {cell}
                             </th>
@@ -226,9 +226,9 @@ export default async function JournalDetailPage({
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-hemp/30 text-umber/80">
-                        {bodyRows.map((row, rIdx) => (
+                        {bodyRows.map((row: string[], rIdx: number) => (
                           <tr key={rIdx}>
-                            {row.map((cell, cIdx) => (
+                            {row.map((cell: string, cIdx: number) => (
                               <td key={cIdx} className="py-3 pr-4">
                                 {cell}
                               </td>

@@ -28,11 +28,35 @@ export async function POST(req: NextRequest) {
       .update(rawBody)
       .digest("hex");
 
-    if (expectedSignature !== signature) {
+    // Timing-safe HMAC comparison
+    const sigBuf = Buffer.from(signature, "utf-8");
+    const expBuf = Buffer.from(expectedSignature, "utf-8");
+    if (sigBuf.length !== expBuf.length || !crypto.timingSafeEqual(sigBuf, expBuf)) {
       return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
     }
 
     const event = JSON.parse(rawBody);
+
+    // Webhook Deduplication / Idempotency Gate
+    const eventId = req.headers.get("x-razorpay-event-id") || event.id;
+    if (eventId) {
+      const { data: existing } = await supabaseAdmin
+        .from("webhook_events")
+        .select("id")
+        .eq("event_id", eventId)
+        .maybeSingle();
+
+      if (existing) {
+        return NextResponse.json({ status: "already_processed" }, { status: 200 });
+      }
+
+      await supabaseAdmin.from("webhook_events").insert({
+        event_id: eventId,
+        provider: "razorpay",
+        event_type: event.event || "unknown",
+        payload: event,
+      });
+    }
 
     if (event.event === "payment.captured") {
       const payment = event.payload.payment.entity;
