@@ -54,20 +54,20 @@ export default function Home() {
       <section className="manifesto-section h-screen bg-limestone flex flex-col items-center justify-center p-6 md:p-24 relative overflow-hidden">
         <div className="max-w-4xl text-center">
           <span className="manifesto-text font-mono text-xs uppercase tracking-[0.3em] text-loam block mb-8 md:mb-12">
-            OUR CONVICTION
+            OUR PROMISE
           </span>
           <h2 className="font-serif text-3xl md:text-5xl leading-tight tracking-tight mb-8">
-            <span className="manifesto-text inline-block">A garment's silhouette is decided long before the shears touch the cloth.</span>
+            <span className="manifesto-text inline-block">A great outfit starts with honest fabric, long before you start cutting.</span>
           </h2>
           <div className="space-y-6 font-sans text-sm md:text-base text-umber/80 leading-relaxed text-left max-w-3xl mx-auto">
             <p className="manifesto-text">
-              Every master tailor understands that true garment longevity is determined by yarn physics. Our fibers originate in the mineral-rich soil of Northern France, the alpine grazing valleys of New Zealand, and the historic water-powered mills of Lombardy. We refuse synthetic polyester dilution, selecting only natural fibers spun with balanced twist to prevent seam torque.
+              Every good tailor knows that clothes look better and last longer when the cloth is pure and strong. Our natural fibers come from the best places on earth: pure flax linen from Northern France, soft wool from New Zealand, and smooth silk from Italy. We never mix in cheap plastic polyester, so your clothes feel cool, breathe easily, and stay in great shape.
             </p>
             <p className="manifesto-text">
-              Purchasing textiles online often creates anxiety over texture and weight. Fabriclicious replaces guesswork with transparent mechanical data: exact GSM weight, weave architecture, and drape coefficients. From the cool, dry friction of unbleached linen to the heavy, liquid glide of 19-momme silk charmeuse, our cloth behaves predictably on the cutting table.
+              Buying fabric online can feel scary when you cannot touch it in person. At Fabriclicious, we make it simple and clear. We give you the exact fabric weight in grams (GSM), tell you how it feels, and explain what clothes it works best for. Whether you need cool summer linen or flowing silk, you know exactly what will arrive at your door.
             </p>
             <p className="manifesto-text">
-              In our atelier, fabric is never pulled or mechanically stressed. Every bolt rests for 24 hours on hardwood tables before cutting. When your pattern calls for 3.4 meters, our cutters slice precisely 3.4 unbroken meters along the weft line, preserving the grainline for your garment.
+              We treat every fabric roll with care. We let our rolls rest flat so the cloth is never stretched or pulled out of shape. When your project needs 3.5 meters, our cutters measure and cut precisely 3.5 unbroken continuous meters straight along the weave, ready for your sewing table.
             </p>
           </div>
         </div>

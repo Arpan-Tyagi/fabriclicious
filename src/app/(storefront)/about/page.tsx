@@ -46,11 +46,11 @@ export default function AboutPage() {
       {/* Header */}
       <header className="max-w-4xl mx-auto text-center mb-32">
         <h1 className="about-header-text font-serif text-5xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-tighter mb-8">
-          Reviving the Reverence <br className="hidden md:block" />
-          for the <span className="text-loam italic">Loom.</span>
+          Pure Natural Fabrics <br className="hidden md:block" />
+          for <span className="text-loam italic">Every Maker.</span>
         </h1>
         <p className="about-header-text font-sans text-lg md:text-xl text-umber/80 max-w-3xl mx-auto leading-relaxed font-light">
-          In an era of synthetic blends that degrade in a single season, Fabriclicious was established on a simple conviction: Great design begins with honest cloth.
+          Most clothes today are made from cheap plastic polyester that feels sweaty and wears out in a few months. Fabriclicious was built on one simple belief: great clothes start with pure, natural, honest fabrics.
         </p>
       </header>
 
@@ -58,10 +58,10 @@ export default function AboutPage() {
       <section className="max-w-5xl mx-auto mb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
           <div className="reveal-section space-y-6">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-loam">Foundation 01</span>
-            <h2 className="font-serif text-3xl md:text-4xl leading-tight">Natural Fiber Purity</h2>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-loam">Pillar 01</span>
+            <h2 className="font-serif text-3xl md:text-4xl leading-tight">100% Pure Natural Fibers</h2>
             <p className="font-sans text-umber/80 leading-relaxed text-sm md:text-base">
-              We reject synthetic polyester dilution, acrylic coatings, and chemical softeners. Our collection is built on natural fibers that have clothed humanity for millennia: French Normandy flax, alpine virgin wool, organic long-staple cotton, and Como mulberry silk.
+              We say no to plastic polyester, scratchy nylon, and fake softening chemicals. We only source pure natural fibers that people have loved for thousands of years: breathable French Normandy linen, soft virgin wool, long-staple cotton, and real mulberry silk.
             </p>
           </div>
           <div className="reveal-section aspect-[4/5] bg-limestone overflow-hidden rounded-[2rem]">
@@ -76,10 +76,10 @@ export default function AboutPage() {
             <img src="/tailoring_shears.jpg" alt="Direct Mill Partnerships" className="w-full h-full object-cover hover:scale-105 transition-all duration-[2s]" />
           </div>
           <div className="reveal-section space-y-6 order-1 md:order-2">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-loam">Foundation 02</span>
-            <h2 className="font-serif text-3xl md:text-4xl leading-tight">Direct European Mill Partnerships</h2>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-loam">Pillar 02</span>
+            <h2 className="font-serif text-3xl md:text-4xl leading-tight">Direct from Real Weavers</h2>
             <p className="font-sans text-umber/80 leading-relaxed text-sm md:text-base">
-              We bypass intermediary brokers to collaborate directly with generational family-owned weaving mills in Biella, Como, Lyon, and Flanders. We verify water filtration protocols, yarn twist specifications, and low-impact dyeing standards firsthand.
+              We source directly from heritage textile mills in France, Italy, Belgium, and India. By cutting out brokers and middlemen, we offer luxury fabrics with low minimums, clear prices, and fast delivery straight to your cutting table.
             </p>
           </div>
         </div>
@@ -88,10 +88,10 @@ export default function AboutPage() {
       <section className="max-w-5xl mx-auto mb-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
           <div className="reveal-section space-y-6">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-loam">Foundation 03</span>
-            <h2 className="font-serif text-3xl md:text-4xl leading-tight">The Cutter's Respect</h2>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-loam">Pillar 03</span>
+            <h2 className="font-serif text-3xl md:text-4xl leading-tight">Continuous Cuts with Zero Stress</h2>
             <p className="font-sans text-umber/80 leading-relaxed text-sm md:text-base">
-              Cloth must never be pulled or hurried. Every bolt rests on our wooden tables for 24 hours to relax tension before cutting. When your pattern calls for 2.8 meters, you receive exactly 2.8 meters—hand-sliced along the true grainline.
+              We let all our fabric bolts rest flat on wooden tables for 24 hours so the fibers relax before cutting. When your project needs 2.5 or 3.4 meters, you receive one single continuous cut from the same dye roll, cut straight along the weave.
             </p>
           </div>
           <div className="reveal-section aspect-[4/5] bg-limestone overflow-hidden rounded-[2rem]">
