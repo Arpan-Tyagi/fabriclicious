@@ -282,7 +282,7 @@ When you press silk hems, pressing too hard with a hot iron can leave a shiny ri
 
 ## Elevate Your Silk Creations
 
-Finishing silk takes a little patience, but the results are breathtaking. When your hems are narrow, clean, and flat, your silk dresses and blouses will look just like custom pieces from a Parisian atelier.
+Finishing silk takes a little patience, but the results are breathtaking. When your hems are narrow, clean, and flat, your silk dresses and blouses will look just like custom pieces from a Parisian fashion studio.
 
 Order sample swatches of certified Italian silk in the [Fabriclicious Swatch Studio](/swatches), or explore our complete [Pure Silk & Viscose Catalog](/category/viscose) today.
     `

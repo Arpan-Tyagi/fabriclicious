@@ -2,9 +2,9 @@ import { env } from "@/env";
 
 /**
  * WhatsApp Automated Operational Notifications:
- * - fabriclicious_order_confirmed: "Dear {{1}}, your atelier order #{{2}} for {{3}} of continuous fabric has been confirmed. Our cutters have scheduled your bolt. Track your order status here: {{4}}"
+ * - fabriclicious_order_confirmed: "Dear {{1}}, your order #{{2}} for {{3}} of continuous fabric has been confirmed. Our cutters have scheduled your bolt. Track your order status here: {{4}}"
  * - fabriclicious_cut_in_progress: "Your fabric is on the cutting table. Bolt #{{1}} has been inspected under full-spectrum daylight lamps and is being sliced to your requested {{2}} meters along the grainline."
- * - fabriclicious_dispatched: "Your fabric parcel has departed our atelier. Your unbroken cuts have been rolled on hardwood tubes and dispatched via courier. Tracking Number: {{1}}."
+ * - fabriclicious_dispatched: "Your fabric parcel has departed our warehouse. Your unbroken cuts have been rolled on hardwood tubes and dispatched via courier. Tracking Number: {{1}}."
  */
 export class OmnichannelDispatcher {
   static async sendWhatsAppTemplate(phone: string, template: string, variables: string[]) {

@@ -31,7 +31,7 @@ export const CATEGORY_EDITORIAL_DATA: Record<string, CategoryEditorialItem> = {
   cotton: {
     slug: "cotton",
     title: "Cotton.",
-    metaTitle: "Buy Long-Staple Cotton Fabric Online by the Meter | Fabriclicious Atelier",
+    metaTitle: "Buy Long-Staple Cotton Fabric Online by the Meter | Fabriclicious",
     metaDescription: "Buy luxury long-staple cotton poplin, twill, and shirting fabrics online by the meter. Continuous cuts from 0.5m with single-dye lot integrity and swatch sampling.",
     targetKeyword: "buy cotton fabric online by the meter",
     gsmRange: "130–220 GSM",
@@ -45,7 +45,7 @@ export const CATEGORY_EDITORIAL_DATA: Record<string, CategoryEditorialItem> = {
   viscose: {
     slug: "viscose",
     title: "Viscose & Silk.",
-    metaTitle: "Buy Fluid Viscose Twill Fabric Online by the Meter | Fabriclicious Atelier",
+    metaTitle: "Buy Fluid Viscose Twill Fabric Online by the Meter | Fabriclicious",
     metaDescription: "Buy luxury fluid viscose twill fabric online by the meter. Grade 01 liquid drape for bias-cut dresses and evening wear. Continuous cuts from 0.5m.",
     targetKeyword: "buy viscose fabric online by the meter",
     gsmRange: "140–190 GSM",
@@ -173,7 +173,7 @@ export const CATEGORY_EDITORIAL_DATA: Record<string, CategoryEditorialItem> = {
   "pure-linen": {
     slug: "linen",
     title: "Pure Linen.",
-    metaTitle: "Buy Pure Linen Fabric Online by the Meter | Fabriclicious Atelier",
+    metaTitle: "Buy Pure Linen Fabric Online by the Meter | Fabriclicious",
     metaDescription: "Buy 100% pure Normandy flax linen fabric online by the meter. Continuous fractional cuts from 0.5m & wholesale rolls. Single-dye lot integrity with 100% credited swatches.",
     targetKeyword: "buy pure linen fabric online by the meter",
     gsmRange: "160–240 GSM",
@@ -201,7 +201,7 @@ export const CATEGORY_EDITORIAL_DATA: Record<string, CategoryEditorialItem> = {
   "pure-silk": {
     slug: "viscose",
     title: "Pure Silk & Fluid Twills.",
-    metaTitle: "Buy Pure Silk & Fluid Viscose Fabric Online | Fabriclicious Atelier",
+    metaTitle: "Buy Pure Silk & Fluid Viscose Fabric Online | Fabriclicious",
     metaDescription: "Buy luxury Mulberry silk and fluid viscose twill fabric online by the meter. Grade 6A continuous filaments and liquid drape for bias cutting and evening wear.",
     targetKeyword: "buy pure silk fabric online by the meter",
     gsmRange: "85–180 GSM",

@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Return Policy & Atelier Cut Integrity",
+  title: "Return Policy & Fabric Cut Guarantee",
   description: "Inspection protocols, swatch evaluations, and custom-cut returns policy.",
 };
 
@@ -26,7 +26,7 @@ export default function ReturnsPage() {
               If your fabric arrives with a structural flaw, warp imperfection, or dye variation exceeding historical artisan tolerances:
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li>Notify our atelier within <strong>14 days of delivery</strong> with photos of the uncut length.</li>
+              <li>Notify our customer support within <strong>14 days of delivery</strong> with photos of the uncut length.</li>
               <li>We will arrange a complimentary courier pickup and issue an immediate replacement or full refund.</li>
               <li>Fabrics must remain uncut, unwashed, and unpressed to qualify for full return credit.</li>
             </ul>

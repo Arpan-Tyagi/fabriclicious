@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const editorial = CATEGORY_EDITORIAL_DATA[lowerCat];
 
   const formattedName = slug.charAt(0).toUpperCase() + slug.slice(1);
-  const title = editorial?.metaTitle || `Buy ${formattedName} Fabric Online by the Meter | Fabriclicious Atelier`;
+  const title = editorial?.metaTitle || `Buy ${formattedName} Fabric Online by the Meter | Fabriclicious`;
   const description =
     editorial?.metaDescription ||
     `Buy high-end continuous ${formattedName} textiles online by the meter. Fractional cuts from 0.5m with single-dye lot integrity and 100% credited swatch sampling.`;
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
           url: `/cat_${lowerCat}.jpg`,
           width: 1200,
           height: 630,
-          alt: `${formattedName} Natural Fabric - Fabriclicious Atelier`,
+          alt: `${formattedName} Natural Fabric - Fabriclicious`,
         },
       ],
     },
@@ -198,7 +198,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <div className="flex items-center gap-3">
             <span className="inline-block w-2.5 h-2.5 rounded-full bg-loam" />
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-loam font-semibold">
-              The Atelier Sourcing Protocol // {currentEditorial.gsmRange}
+              Fabric Buying &amp; Sewing Guide // {currentEditorial.gsmRange}
             </span>
           </div>
           <h2 className="font-serif text-2xl md:text-3xl text-umber">
@@ -269,7 +269,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               Sourcing {formattedName} in Bulk for Boutique Collections?
             </h3>
             <p className="font-sans text-sm md:text-base text-linen/80 leading-relaxed font-light">
-              We allocate full unbroken factory rolls (20 to 100+ meters) for fashion houses, ateliers, and independent apparel labels. Benefit from tiered volume pricing, single dye-lot guarantees, and GST-compliant commercial invoicing.
+              We allocate full unbroken factory rolls (20 to 100+ meters) for fashion houses, sewing studios, and independent apparel labels. Benefit from tiered volume pricing, single dye-lot guarantees, and GST-compliant commercial invoicing.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-start md:justify-end">

@@ -191,7 +191,7 @@ export default function Home() {
               <p className="font-sans text-sm text-linen/80">Select up to five swatches in a protective portfolio.</p>
             </div>
             <div>
-              <span className="text-mint font-mono text-sm block mb-2">02. Inspect in Your Atelier</span>
+              <span className="text-mint font-mono text-sm block mb-2">02. Inspect at Home</span>
               <p className="font-sans text-sm text-linen/80">Test the hand-feel, stretch along the true bias, examine the dye in natural daylight, and evaluate drape over a dress form.</p>
             </div>
             <div>
@@ -243,7 +243,7 @@ export default function Home() {
             <Link href="/journal/mastering-true-bias" className="group block bg-limestone rounded-2xl p-8 border border-hemp hover:border-loam/50 transition-colors">
               <span className="font-mono text-[10px] uppercase tracking-wider text-loam bg-loam/10 px-3 py-1 rounded-full border border-loam/30 mb-4 inline-block">Craftsmanship</span>
               <h3 className="font-serif text-3xl text-umber group-hover:text-loam transition-colors mb-4">Mastering the True Bias: Cutting Silk Charmeuse</h3>
-              <p className="font-sans text-sm text-umber/70 leading-relaxed mb-6">An atelier guide to calculating diagonal grainline ease, preventing seam puckering, and calibrating needle tension.</p>
+              <p className="font-sans text-sm text-umber/70 leading-relaxed mb-6">A practical guide to calculating diagonal grainline ease, preventing seam puckering, and calibrating needle tension.</p>
               <span className="font-mono text-[10px] uppercase tracking-widest text-umber group-hover:text-loam transition-colors">Read Masterclass →</span>
             </Link>
             <Link href="/journal/belgian-flax-linen-tailoring-guide" className="group block bg-limestone rounded-2xl p-8 border border-hemp hover:border-loam/50 transition-colors">

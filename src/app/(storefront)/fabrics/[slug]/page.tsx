@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       canonical: `/fabrics/${slug}`,
     },
     openGraph: {
-      title: `${formattedTitle} | Fabriclicious Atelier`,
+      title: `${formattedTitle} | Fabriclicious`,
       description: `Bespoke natural textile cut continuously from 0.5m. Swatch fee 100% credited on continuous yardage.`,
       url: `https://www.fabriclicious.com/fabrics/${slug}`,
       images: ["/placeholder-fabric.jpg"],
@@ -54,7 +54,7 @@ export default async function ProductDetailPage({
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: product.title || "Bespoke Atelier Fabric",
+    name: product.title || "Premium Continuous Fabric",
     description: product.description || "Continuous luxury textile cut from 0.5 meters.",
     image: `https://www.fabriclicious.com${defaultImage}`,
     brand: {
@@ -145,9 +145,9 @@ export default async function ProductDetailPage({
 
           <FabricCutSelector product={product} variant={product.variants?.[0]} />
 
-          {/* Structured Atelier Technical Accordion */}
+          {/* Structured Fabric Technical Accordion */}
           <div className="mt-16 space-y-6">
-            <h3 className="font-serif text-2xl text-umber">Atelier Technical Specifications</h3>
+            <h3 className="font-serif text-2xl text-umber">Fabric Specifications</h3>
 
             <div className="border border-hemp rounded-2xl overflow-hidden bg-limestone">
               <div className="p-6 border-b border-hemp">

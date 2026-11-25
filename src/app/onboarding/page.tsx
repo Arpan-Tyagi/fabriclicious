@@ -22,7 +22,7 @@ export default function OnboardingPage() {
           <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-loam block mb-4">
             Step 02 — Client Details
           </span>
-          <h1 className="font-serif text-5xl tracking-tight mb-4">Welcome to the Atelier.</h1>
+          <h1 className="font-serif text-5xl tracking-tight mb-4">Welcome to Fabriclicious.</h1>
           <p className="font-sans text-sm text-linen/60 leading-relaxed max-w-sm">
             Please provide your details to complete your profile. A valid phone number is required for WhatsApp concierge dispatch.
           </p>

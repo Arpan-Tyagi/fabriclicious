@@ -30,7 +30,7 @@ export function CartDrawer({ isOpen, onClose }: { isOpen: boolean; onClose: () =
             className="fixed top-0 right-0 h-[100dvh] w-full max-w-md bg-limestone text-umber z-[101] shadow-2xl flex flex-col border-l border-hemp"
           >
             <div className="p-6 md:p-10 flex items-center justify-between border-b border-hemp">
-              <h2 className="font-serif text-3xl">Atelier Cart</h2>
+              <h2 className="font-serif text-3xl">Shopping Cart</h2>
               <button onClick={onClose} className="p-2 hover:bg-limestone rounded-full transition-colors">
                 <X strokeWidth={1.5} />
               </button>
@@ -39,7 +39,7 @@ export function CartDrawer({ isOpen, onClose }: { isOpen: boolean; onClose: () =
             <div className="flex-1 overflow-y-auto p-6 md:p-10 space-y-8">
               {items.length === 0 ? (
                 <div className="text-center text-umber/50 font-mono text-sm mt-10">
-                  <p className="mb-2">Your Atelier Bag is Empty.</p>
+                  <p className="mb-2">Your Cart is Empty.</p>
                   <p className="text-[10px] uppercase tracking-widest text-umber/40">No fabrics have been measured yet. Explore our curated European mills to begin your bespoke creation.</p>
                   <button onClick={onClose} className="mt-6 px-6 py-2 border border-umber text-umber text-xs uppercase tracking-widest hover:bg-umber hover:text-linen transition-colors">
                     Browse Continuous Fabrics

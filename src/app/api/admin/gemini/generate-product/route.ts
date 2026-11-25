@@ -22,7 +22,7 @@ export async function POST(req: Request) {
           type: Type.ARRAY,
           items: { type: Type.STRING }
         },
-        atelierSewingNotes: {
+        sewingNotes: {
           type: Type.OBJECT,
           properties: {
             recommendedNeedleSize: { type: Type.STRING },

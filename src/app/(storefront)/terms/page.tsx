@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Terms of Service | Fabriclicious Atelier",
+  title: "Terms of Service | Fabriclicious",
   description: "Terms governing custom textile fractional cuts, orders, and commercial usage.",
 };
 
@@ -15,7 +15,7 @@ export default function TermsPage() {
             Terms of Service
           </h1>
           <p className="font-sans text-sm text-umber/70 leading-relaxed">
-            Fabriclicious is a digital textile atelier and brand operated as a venture of Mithila Enterprises. By accessing our services, you agree to these bespoke terms.
+            Fabriclicious is a digital fabric store and brand operated as a venture of Mithila Enterprises. By accessing our services, you agree to these bespoke terms.
           </p>
         </header>
 
@@ -23,7 +23,7 @@ export default function TermsPage() {
           <div className="border border-hemp rounded-2xl p-8 bg-limestone space-y-4">
             <h2 className="font-serif text-2xl text-umber">1. Fractional Continuous Cutting</h2>
             <p>
-              Fabric lengths are measured and cut by hand using professional calibrated atelier tables. A cutting variance of &plusmn;1.5% is recognized within industry standards. Continuous cuts are guaranteed unbroken across single lengths up to whole bolt capacities.
+              Fabric lengths are measured and cut by hand using professional calibrated cutting tables. A cutting variance of &plusmn;1.5% is recognized within industry standards. Continuous cuts are guaranteed unbroken across single lengths up to whole bolt capacities.
             </p>
           </div>
 
@@ -37,7 +37,7 @@ export default function TermsPage() {
           <div className="border border-hemp rounded-2xl p-8 bg-limestone space-y-4">
             <h2 className="font-serif text-2xl text-umber">3. Contact Information</h2>
             <p>
-              For legal inquiries and enterprise textile contracts, please contact Mithila Enterprises / Fabriclicious Atelier via our client access concierge.
+              For legal inquiries and bulk fabric orders, please contact Mithila Enterprises / Fabriclicious via our customer support.
             </p>
           </div>
         </section>

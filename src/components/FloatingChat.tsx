@@ -75,7 +75,7 @@ export function FloatingChat() {
             >
               <div className="bg-umber text-linen p-5 flex justify-between items-center">
                 <div>
-                  <h3 className="font-serif text-lg tracking-tight">Atelier Concierge</h3>
+                  <h3 className="font-serif text-lg tracking-tight">Fabriclicious Assistant</h3>
                   <p className="font-mono text-[10px] text-linen/60 uppercase tracking-widest">Powered by Gemini AI</p>
                 </div>
                 <button onClick={() => setIsOpen(false)} className="hover:text-loam transition-colors p-1">

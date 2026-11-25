@@ -61,7 +61,7 @@ export default function StorefrontLayout({ children }: { children: ReactNode }) 
             <Link href="/journal" className="hover:text-loam transition-colors">Journal</Link>
             <Link href="/swatches" className="hover:text-loam transition-colors">Swatches</Link>
             <Link href="/about" className="hover:text-loam transition-colors">Our Legacy</Link>
-            <Link href="/admin/products/new" className="hover:text-loam transition-colors">Atelier</Link>
+            <Link href="/admin/products/new" className="hover:text-loam transition-colors">Admin</Link>
             <Link href="/login" className="hover:text-loam transition-colors">Client Access</Link>
           </nav>
 
@@ -116,7 +116,7 @@ export default function StorefrontLayout({ children }: { children: ReactNode }) 
               className="fixed top-[85px] sm:top-[93px] left-0 right-0 bg-linen border-b border-hemp shadow-2xl z-50 lg:hidden px-6 py-6 flex flex-col space-y-4 max-h-[calc(100vh-93px)] overflow-y-auto"
             >
               <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-loam pb-2 border-b border-hemp/40">
-                Atelier Navigation
+                Store Navigation
               </div>
               
               <nav className="flex flex-col space-y-3 font-mono text-xs uppercase tracking-[0.18em]">
@@ -157,7 +157,7 @@ export default function StorefrontLayout({ children }: { children: ReactNode }) 
                   onClick={() => setIsMobileNavOpen(false)} 
                   className="py-2.5 border-b border-hemp/20 hover:text-loam transition-colors flex items-center justify-between"
                 >
-                  <span>Atelier Admin</span>
+                  <span>Admin</span>
                   <ArrowRight size={14} className="text-bark" />
                 </Link>
                 <Link 
@@ -201,10 +201,10 @@ export default function StorefrontLayout({ children }: { children: ReactNode }) 
                   />
                 </Link>
                 <p className="font-sans text-sm md:text-base text-linen/60 max-w-md leading-relaxed mb-2">
-                  The exclusive digital atelier of <strong className="text-linen font-medium">Mithila Enterprises</strong>.
+                  The digital fabric store of <strong className="text-linen font-medium">Mithila Enterprises</strong>.
                 </p>
                 <p className="font-sans text-xs md:text-sm text-linen/60 max-w-md leading-relaxed">
-                  Four decades of uncompromising textile curation. Engineered for bespoke tailors, ateliers, and discerning creators worldwide.
+                  Four decades of honest textile expertise. Made for tailors, designers, and home sewers.
                 </p>
               </div>
             </div>
@@ -232,9 +232,9 @@ export default function StorefrontLayout({ children }: { children: ReactNode }) 
               </div>
 
               <div className="space-y-4">
-                <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-loam mb-4">Join The Atelier</h3>
+                <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-loam mb-4">Join Our Newsletter</h3>
                 <p className="font-sans text-xs text-linen/60 leading-relaxed mb-4">
-                  Exclusive access to rare surplus drops and heavy yardage allocations.
+                  Early access to rare fabric arrivals and new bolt releases.
                 </p>
                 <form className="relative group">
                   <input 

@@ -58,7 +58,7 @@ export default async function FabricsPage({ searchParams }: Props) {
         usage: "Various applications depending on weave and weight.",
         whenToBuy: "Year-round staple.",
         feel: "Varies by specific composition.",
-        buyingGuide: "Contact our atelier for specific recommendations."
+        buyingGuide: "Contact our team for specific recommendations."
       };
     }
     

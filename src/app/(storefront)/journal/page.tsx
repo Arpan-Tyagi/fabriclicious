@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
-import { ATELIER_JOURNAL_ARTICLES, JournalArticle } from "@/data/journalArticles";
+import { FABRIC_JOURNAL_ARTICLES, JournalArticle } from "@/data/journalArticles";
 
 export const metadata = {
-  title: "Editorial Journal & Sourcing Masterclasses | Fabriclicious Atelier",
+  title: "Fabric Journal & Sewing Guides | Fabriclicious",
   description:
-    "Daily haute couture masterclasses, textile physics manuals, needle calibrations, and bespoke fabric sourcing guides curated by Mithila Enterprises.",
+    "Clear sewing tutorials, fabric care guides, needle advice, and fabric buying guides by Mithila Enterprises.",
   alternates: {
     canonical: "/journal",
   },
@@ -34,7 +34,7 @@ export default async function StorefrontJournalPage({ searchParams }: JournalPag
       ? dbBlogs.map((b) => ({
           slug: b.slug,
           title: b.title,
-          category: "Atelier Masterclass",
+          category: "Fabric Guide",
           readTime: "7 min read",
           excerpt: b.excerpt,
           publishDay: "Archived",
@@ -44,7 +44,7 @@ export default async function StorefrontJournalPage({ searchParams }: JournalPag
           pastel: "bg-pastel-sky/40",
           content: b.content_markdown,
         }))
-      : Object.values(ATELIER_JOURNAL_ARTICLES);
+      : Object.values(FABRIC_JOURNAL_ARTICLES);
 
   const sortedArticles = [...rawArticles].sort((a, b) => {
     const dateComp = b.publishDate.localeCompare(a.publishDate);
@@ -114,7 +114,7 @@ export default async function StorefrontJournalPage({ searchParams }: JournalPag
                     &ldquo;Haute Couture begins at the loom.&rdquo;
                   </span>
                   <p className="font-mono text-[10px] uppercase text-umber/50 tracking-widest">
-                    {featured.category} {"//"} Atelier Protocol
+                    {featured.category} {"//"} Sewing Guide
                   </p>
                 </div>
               </div>
@@ -126,7 +126,7 @@ export default async function StorefrontJournalPage({ searchParams }: JournalPag
         <div className="space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-hemp pb-4 gap-4">
             <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-loam">
-              Atelier Masterclasses &amp; Sourcing Protocols
+              Fabric Guides &amp; Sewing Tutorials
             </h3>
             <span className="font-mono text-[11px] text-umber/60 uppercase">
               {filteredArticles.length} of {sortedArticles.length} Volumes Shown

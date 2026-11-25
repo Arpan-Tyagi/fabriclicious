@@ -39,7 +39,7 @@ export default async function AdminDashboardPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-hemp pb-6">
         <div>
-          <h1 className="font-serif text-4xl text-umber tracking-tight">Atelier Command Center</h1>
+          <h1 className="font-serif text-4xl text-umber tracking-tight">Admin Command Center</h1>
           <p className="font-mono text-xs uppercase tracking-widest text-umber/60 mt-1">
             Real-time Metrics & Inventory Roll Intelligence
           </p>

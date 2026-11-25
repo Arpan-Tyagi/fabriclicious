@@ -48,7 +48,7 @@ export default function SwatchesPage() {
           </div>
           <div className="space-y-1">
             <span className="font-mono text-xs text-loam uppercase">Step 02</span>
-            <h4 className="font-serif text-xl text-umber">Inspect Under Atelier Light</h4>
+            <h4 className="font-serif text-xl text-umber">Inspect in Natural Light</h4>
             <p className="font-sans text-xs text-umber/70">Test the hand-feel, pull the grain along the bias, observe true dye color, and test drape.</p>
           </div>
           <div className="space-y-1">
@@ -62,7 +62,7 @@ export default function SwatchesPage() {
         <div className="bg-loam text-linen rounded-3xl p-8 md:p-12 max-w-4xl mx-auto shadow-2xl relative overflow-hidden text-left">
           <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"></div>
           <div className="relative z-10 space-y-4">
-            <h3 className="font-serif text-2xl md:text-3xl text-center md:text-left">The Atelier Swatch Portfolio ($20.00)</h3>
+            <h3 className="font-serif text-2xl md:text-3xl text-center md:text-left">The Fabriclicious Swatch Sample Box ($20.00)</h3>
             <ul className="space-y-3 font-sans text-sm md:text-base text-linen/90 max-w-2xl mt-4 list-disc list-inside">
               <li>Five generous 10&times;10 cm swatches cut along the grainline.</li>
               <li>Specimen Cards detailing GSM, weave type, needle pairing, and shrinkage rates.</li>
@@ -74,7 +74,7 @@ export default function SwatchesPage() {
         {/* Curated Swatch Grid */}
         <div className="space-y-6">
           <div className="flex justify-between items-end border-b border-hemp pb-4">
-            <h2 className="font-serif text-3xl text-umber">Featured Atelier Swatches</h2>
+            <h2 className="font-serif text-3xl text-umber">Featured Fabric Swatches</h2>
             <Link href="/fabrics" className="font-mono text-xs uppercase text-loam underline hover:text-umber">
               View Full Archive →
             </Link>

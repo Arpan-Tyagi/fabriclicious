@@ -50,7 +50,7 @@ export const ShippingNotificationEmail = ({
                       <tr>
                         <td align="center" style={{ paddingTop: "32px" }}>
                           <p style={{ fontSize: "12px", color: ink, fontFamily: "monospace", textTransform: "uppercase", letterSpacing: "2px", margin: 0 }}>
-                            The Atelier Team • Mithila Enterprises
+                            The Fabriclicious Team • Mithila Enterprises
                           </p>
                         </td>
                       </tr>

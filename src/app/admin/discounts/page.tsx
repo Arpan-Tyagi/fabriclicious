@@ -27,7 +27,7 @@ export default async function DiscountsPage() {
         <div>
           <h1 className="font-serif text-4xl text-umber tracking-tight">Discount & Trade Engine</h1>
           <p className="font-mono text-xs uppercase tracking-widest text-umber/60 mt-1">
-            Promotions, Remnant Automations & Trade Atelier Accounts
+            Promotions, Remnant Automations & Trade Accounts
           </p>
         </div>
         <button className="px-5 py-2.5 bg-umber text-linen rounded-full text-xs font-mono uppercase tracking-wider hover:bg-loam transition-colors">
@@ -79,10 +79,10 @@ export default async function DiscountsPage() {
         </div>
       </div>
 
-      {/* Trade Atelier Accounts */}
+      {/* Trade Accounts */}
       <div className="bg-limestone border border-hemp rounded-2xl p-6 space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="font-serif text-2xl text-umber">Trade Atelier Wholesale Ledger</h2>
+          <h2 className="font-serif text-2xl text-umber">Trade Wholesale Ledger</h2>
           <span className="font-mono text-xs text-loam uppercase">B2B Trade Accounts</span>
         </div>
         <div className="divide-y divide-hemp/60">

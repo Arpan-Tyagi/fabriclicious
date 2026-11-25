@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { ATELIER_JOURNAL_ARTICLES } from "@/data/journalArticles";
+import { FABRIC_JOURNAL_ARTICLES } from "@/data/journalArticles";
 import { CATEGORY_EDITORIAL_DATA } from "@/data/categoryEditorial";
 import { createClient } from "@supabase/supabase-js";
 import { env } from "@/env";
@@ -76,8 +76,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.85,
   }));
 
-  // Atelier Masterclass Journal routes
-  const journalSlugs = new Set(Object.keys(ATELIER_JOURNAL_ARTICLES));
+  // Fabric Journal routes
+  const journalSlugs = new Set(Object.keys(FABRIC_JOURNAL_ARTICLES));
 
   // Dynamic Product and Blog routes from Supabase
   let dynamicProductRoutes: MetadataRoute.Sitemap = [];

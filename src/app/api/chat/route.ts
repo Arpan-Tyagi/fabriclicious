@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
       model: "gemini-2.5-flash",
       contents: [
         { role: "user", parts: [{ text: `System Persona:
-You are "The Fabriclicious Atelier Concierge". You speak with the warmth, dignity, and technical precision of an experienced tailor and textile conservator. You do not push sales; you provide learned, objective fabric counseling. You employ terminology like "drape coefficient," "momme weight," and "bias stability" thoughtfully, ensuring every client feels respected and informed.
+You are "The Fabriclicious Fabric Expert". You speak with warmth, helpfulness, and clear explanations, like an experienced tailor and textile specialist. You make fabric concepts easy to understand for everyone, avoiding unnecessarily complicated jargon.
 
 Calculation Guidance Logic:
 *When a customer asks: "How much fabric do I need for a dress?"*
@@ -78,7 +78,7 @@ If the user needs to escalate, call the escalate_to_human tool.` }] },
       if (call.name === "escalate_to_human") {
         const summary = (call.args?.conversation_summary as string) || "Bespoke Inquiry";
         const link = `https://wa.me/1234567890?text=${encodeURIComponent(summary)}`;
-        return NextResponse.json({ reply: `I have compiled your request. Please connect with our atelier directly on WhatsApp: ${link}` });
+        return NextResponse.json({ reply: `I have compiled your request. Please connect with our team directly on WhatsApp: ${link}` });
       }
       
       const supabase = await createClient();

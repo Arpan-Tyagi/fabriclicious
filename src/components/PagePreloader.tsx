@@ -38,7 +38,7 @@ export function PagePreloader() {
         >
           <img 
             src="/images/logo_logo.svg" 
-            alt="Fabriclicious Atelier" 
+            alt="Fabriclicious" 
             className="w-full h-full object-contain"
           />
         </motion.div>

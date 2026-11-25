@@ -18,7 +18,7 @@ export const OrderConfirmationEmail = ({
   return (
     <html lang="en">
       <head>
-        <title>Atelier Order Confirmation #{order_number} — Fabriclicious</title>
+        <title>Order Confirmation #{order_number} — Fabriclicious</title>
       </head>
       <body style={{ margin: 0, padding: 0, backgroundColor: bg, fontFamily: '"Georgia", serif', color: ink }}>
         <table role="presentation" border={0} cellPadding="0" cellSpacing="0" width="100%" style={{ backgroundColor: bg }}>
@@ -28,13 +28,13 @@ export const OrderConfirmationEmail = ({
                 <tr>
                   <td style={{ padding: "40px" }}>
                     <p style={{ fontSize: "12px", color: ink, fontFamily: 'monospace', textTransform: "uppercase", letterSpacing: "2px", margin: "0 0 32px 0", textAlign: "center" }}>
-                      FABRICLICIOUS // HIGH-END FABRIC ATELIER
+                      FABRICLICIOUS // PREMIUM NATURAL FABRICS
                     </p>
                     <p style={{ fontSize: "18px", color: ink, margin: "0 0 24px 0" }}>
-                      Dear {customer_name}, your tailoring requisition has been received.
+                      Dear {customer_name}, your fabric order has been received.
                     </p>
                     <p style={{ fontSize: "16px", color: ink, lineHeight: "1.6", margin: "0 0 32px 0" }}>
-                      Your fabric is being prepared on our atelier cutting tables. Every meter is measured under relaxed tension, checked for dye lot consistency, and hand-rolled onto rigid, crease-resistant tubes to protect selvage integrity during transit.
+                      Your fabric is being prepared on our precision cutting tables. Every meter is measured under relaxed tension, checked for dye lot consistency, and hand-rolled onto rigid, crease-resistant tubes to protect selvage integrity during transit.
                     </p>
                     <table border={0} cellPadding="12" cellSpacing="0" width="100%" style={{ marginBottom: "32px", borderCollapse: "collapse", border: `1px solid ${border}` }}>
                       <thead>
@@ -60,7 +60,7 @@ export const OrderConfirmationEmail = ({
                       <tr>
                         <td align="center" style={{ paddingTop: "32px" }}>
                           <p style={{ fontSize: "12px", color: ink, fontFamily: 'monospace', textTransform: "uppercase", letterSpacing: "2px", margin: 0 }}>
-                            The Atelier Team • Mithila Enterprises
+                            The Fabriclicious Team • Mithila Enterprises
                           </p>
                         </td>
                       </tr>

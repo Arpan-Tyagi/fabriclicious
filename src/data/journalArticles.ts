@@ -17,9 +17,11 @@ export interface JournalArticle {
   content: string;
 }
 
-export const ATELIER_JOURNAL_ARTICLES: Record<string, JournalArticle> = {
+export const FABRIC_JOURNAL_ARTICLES: Record<string, JournalArticle> = {
   ...BATCH_1_ARTICLES,
   ...BATCH_2_ARTICLES,
   ...BATCH_3_ARTICLES,
   ...BATCH_4_ARTICLES,
 };
+
+export const ATELIER_JOURNAL_ARTICLES = FABRIC_JOURNAL_ARTICLES;

@@ -25,13 +25,13 @@ export default async function AccountPage() {
         <div className="bg-limestone border border-hemp rounded-3xl p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-3">
-              <span className="font-mono text-xs uppercase tracking-widest text-loam">Atelier Patron Portal</span>
+              <span className="font-mono text-xs uppercase tracking-widest text-loam">Customer Account</span>
               <span className="font-mono text-xs px-2.5 py-0.5 bg-umber/10 text-umber rounded-md border border-hemp font-semibold">
                 {customerCode}
               </span>
             </div>
             <h1 className="font-serif text-4xl text-umber tracking-tight mt-1">
-              {user?.email ? user.email.split("@")[0] : "Haute Couture Member"}
+              {user?.email ? user.email.split("@")[0] : "Valued Customer"}
             </h1>
             <p className="font-sans text-sm text-umber/70 mt-1">
               {user?.email || "patron@fabriclicious.com"} • Fabriclicious Client Access

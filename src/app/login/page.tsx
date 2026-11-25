@@ -35,7 +35,7 @@ export default function LoginPage() {
                   name="email" 
                   type="email" 
                   required 
-                  placeholder="atelier@example.com"
+                  placeholder="client@fabriclicious.com"
                   className="luxury-input"
                 />
               </div>

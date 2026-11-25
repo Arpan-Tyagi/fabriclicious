@@ -1,24 +1,24 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { ATELIER_JOURNAL_ARTICLES } from "@/data/journalArticles";
+import { FABRIC_JOURNAL_ARTICLES } from "@/data/journalArticles";
 
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  return Object.keys(ATELIER_JOURNAL_ARTICLES).map((slug) => ({
+  return Object.keys(FABRIC_JOURNAL_ARTICLES).map((slug) => ({
     slug,
   }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const article = ATELIER_JOURNAL_ARTICLES[slug];
+  const article = FABRIC_JOURNAL_ARTICLES[slug];
 
   const title = article ? article.title : slug.replace(/-/g, " ");
   const description = article
     ? article.excerpt
-    : "Haute couture masterclass and tailoring protocols by Fabriclicious Atelier.";
+    : "Sewing masterclasses, fabric guides, and tailoring tips by Fabriclicious.";
 
   return {
     title: `${title} | Fabriclicious Editorial Masterclass`,
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       canonical: `/journal/${slug}`,
     },
     openGraph: {
-      title: `${title} | Fabriclicious Atelier`,
+      title: `${title} | Fabriclicious`,
       description,
       url: `https://www.fabriclicious.com/journal/${slug}`,
       type: "article",
@@ -108,7 +108,7 @@ export default async function JournalDetailPage({
     .eq("slug", slug)
     .single();
 
-  const article = ATELIER_JOURNAL_ARTICLES[slug];
+  const article = FABRIC_JOURNAL_ARTICLES[slug];
 
   if (!dbBlog && !article) {
     notFound();
@@ -126,7 +126,7 @@ export default async function JournalDetailPage({
     (dbBlog?.created_at ? dbBlog.created_at.split("T")[0] : "2026-11-24");
 
   // Related articles calculation
-  const allArticles = Object.values(ATELIER_JOURNAL_ARTICLES).filter((a) => a.slug !== slug);
+  const allArticles = Object.values(FABRIC_JOURNAL_ARTICLES).filter((a) => a.slug !== slug);
   const sameCategory = allArticles.filter((a) => a.category === category);
   const otherArticles = allArticles.filter((a) => a.category !== category);
   const relatedArticles = [...sameCategory, ...otherArticles].slice(0, 3);
@@ -166,13 +166,13 @@ export default async function JournalDetailPage({
       {
         "@type": "ListItem",
         position: 1,
-        name: "Atelier",
+        name: "Home",
         item: "https://www.fabriclicious.com",
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: "Editorial Journal",
+        name: "Fabric Journal",
         item: "https://www.fabriclicious.com/journal",
       },
       {
@@ -199,11 +199,11 @@ export default async function JournalDetailPage({
         {/* Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb" className="font-mono text-xs text-loam/70 flex items-center gap-2">
           <Link href="/" className="hover:text-umber transition-colors">
-            Atelier
+            Home
           </Link>
           <span className="text-hemp">/</span>
           <Link href="/journal" className="hover:text-umber transition-colors">
-            Editorial Journal
+            Fabric Journal
           </Link>
           <span className="text-hemp">/</span>
           <span className="text-umber truncate max-w-xs md:max-w-md font-medium">
@@ -260,7 +260,7 @@ export default async function JournalDetailPage({
                       className="bg-limestone border border-loam/30 rounded-3xl p-6 md:p-8 my-8 shadow-sm space-y-4"
                     >
                       <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-loam bg-loam/10 px-3 py-1 rounded-full border border-loam/20">
-                        <span>Atelier Sourcing Protocol</span>
+                        <span>Fabric Sourcing Guide</span>
                       </div>
                       <h2 className="font-serif text-2xl md:text-3xl text-umber tracking-tight">
                         {headingText}
@@ -407,10 +407,10 @@ export default async function JournalDetailPage({
             })}
         </div>
 
-        {/* Swatch & Yardage Atelier CTA Box */}
+        {/* Swatch & Yardage CTA Box */}
         <div className="bg-limestone border border-hemp rounded-3xl p-8 md:p-10 space-y-6">
           <div className="font-mono text-xs uppercase tracking-[0.2em] text-loam">
-            The Atelier Swatch Protocol
+            The Swatch Promise
           </div>
           <h3 className="font-serif text-2xl md:text-3xl text-umber">
             Inspect Fiber Structure Before You Cut.
@@ -439,7 +439,7 @@ export default async function JournalDetailPage({
           <section className="space-y-6 pt-10 border-t border-hemp/50">
             <div className="flex items-center justify-between">
               <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-loam">
-                Related Atelier Masterclasses
+                Related Fabric Guides
               </h3>
               <Link
                 href="/journal"

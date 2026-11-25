@@ -90,10 +90,10 @@ export async function POST(req: NextRequest) {
           const { Resend } = await import("resend");
           const resend = new Resend(env.RESEND_API_KEY);
           await resend.emails.send({
-            from: "atelier@fabriclicious.com",
+            from: "orders@fabriclicious.com",
             to: payment.email || "patron@fabriclicious.com",
             subject: "Fabriclicious - Inventory Constraint (Refund Issued)",
-            html: "<p>We sincerely apologize, but the requested yardage was secured by another atelier immediately prior to your transaction completing. A full refund has been initiated.</p>"
+            html: "<p>We sincerely apologize, but the requested yardage was secured by another customer immediately prior to your transaction completing. A full refund has been initiated.</p>"
           });
         }
 
@@ -111,7 +111,7 @@ export async function POST(req: NextRequest) {
         const { Resend } = await import("resend");
         const resend = new Resend(env.RESEND_API_KEY);
         await resend.emails.send({
-          from: "atelier@fabriclicious.com",
+          from: "orders@fabriclicious.com",
           to: payment.email || "patron@fabriclicious.com",
           subject: `Fabriclicious - Order Confirmation ${orderId}`,
           html: "<p>Your fabric cut is now on the cutting table. You will receive dispatch details shortly.</p>"

@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Shipping & Atelier Freight Protocols",
+  title: "Shipping & Fabric Delivery",
   description: "Worldwide continuous bolt freight, temperature-controlled transit, and swatch sample delivery.",
 };
 
@@ -9,7 +9,7 @@ export default function ShippingPage() {
       <div className="max-w-4xl mx-auto space-y-12">
         <header className="space-y-4 border-b border-hemp pb-8">
           <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-loam">
-            Atelier Logistics &amp; Provenance
+            Shipping &amp; Fabric Care
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl text-umber tracking-tight">
             Shipping &amp; Secure Freight

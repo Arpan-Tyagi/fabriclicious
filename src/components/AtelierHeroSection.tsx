@@ -66,7 +66,7 @@ export const AtelierHeroSection: React.FC = () => {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-laurel animate-ping" />
               <span className="text-[9.5px] font-mono uppercase tracking-[0.26em] text-linen/90 font-medium">
-                European Mill Selection // Continuous Cut Atelier
+                European Mill Selection // Continuous Cut Fabric Studio
               </span>
             </motion.div>
 
@@ -109,7 +109,7 @@ export const AtelierHeroSection: React.FC = () => {
                 <div className="space-y-2">
                   <div className="flex items-center justify-between pb-1.5 border-b border-linen/15">
                     <span className="font-mono text-[8.5px] uppercase tracking-[0.24em] text-loam">
-                      Atelier Protocol
+                      Cutting Standard
                     </span>
                     <span className="font-mono text-[8.5px] uppercase tracking-[0.2em] text-linen/50">
                       Standard 0.5m &ndash; 25m+

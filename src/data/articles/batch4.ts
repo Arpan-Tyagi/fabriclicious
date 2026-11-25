@@ -106,8 +106,8 @@ Explore our pure natural collections across [Linen](/category/linen), [Cotton](/
   },
 
   // ================= DAY 7 (SUNDAY, NOV 23, 2026 - EVENING) =================
-  'the-bespoke-atelier-wardrobe-blueprint': {
-    slug: 'the-bespoke-atelier-wardrobe-blueprint',
+  'the-bespoke-wardrobe-fabric-guide': {
+    slug: 'the-bespoke-wardrobe-fabric-guide',
     title: 'The 5 Essential Fabrics for a Timeless Wardrobe: Complete Meterage and Sewing Guide',
     category: 'Craftsmanship',
     readTime: '10 min read',
@@ -339,7 +339,7 @@ When you contact traditional textile mills, they often tell you: *"Our minimum o
 
 If you are a young brand planning a small collection of 20 dresses, ordering 500 meters of a single color is impossible. It ties up all your business cash, fills your studio with unsold rolls, and creates painful inventory waste (deadstock) that you can never sell.
 
-Thankfully, there is a better way. Modern digital sourcing platforms allow small brands and custom ateliers to purchase factory-direct fabrics with **low minimums starting from just 1 roll (10 to 25 meters)**.
+Thankfully, there is a better way. Modern digital sourcing platforms allow small brands and custom sewing studios to purchase factory-direct fabrics with **low minimums starting from just 1 roll (10 to 25 meters)**.
 
 In this clear playbook, we will show you how to buy wholesale fabrics with low minimums, protect your business cash flow, and scale your fashion brand safely.
 
@@ -347,7 +347,7 @@ In this clear playbook, we will show you how to buy wholesale fabrics with low m
 
 ## Where to Source Wholesale Fabric with Low MOQs Online?
 
-At Fabriclicious, we empower independent fashion designers and apparel brands with transparent tiered volume pricing. We keep deep ready-to-ship inventory across our core collections, allowing you to buy from 1 meter for prototyping up to 50+ meter production rolls with guaranteed single dye-lot continuity and official B2B GST tax invoices. Explore wholesale options across [Pure Linen Rolls](/category/linen), [Cotton Poplins](/category/cotton), and [Atelier Silks](/category/viscose).
+At Fabriclicious, we empower independent fashion designers and apparel brands with transparent tiered volume pricing. We keep deep ready-to-ship inventory across our core collections, allowing you to buy from 1 meter for prototyping up to 50+ meter production rolls with guaranteed single dye-lot continuity and official B2B GST tax invoices. Explore wholesale options across [Pure Linen Rolls](/category/linen), [Cotton Poplins](/category/cotton), and [Pure Silks](/category/viscose).
 
 ---
 

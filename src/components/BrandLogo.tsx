@@ -46,7 +46,7 @@ export function BrandLogo({
         >
           <img
             src="/images/logo_logo.svg"
-            alt="Fabriclicious Atelier"
+            alt="Fabriclicious"
             className={imgClassName || "w-24 h-24 sm:w-32 sm:h-32 object-contain"}
           />
         </motion.div>
@@ -74,7 +74,7 @@ export function BrandLogo({
       >
         <img
           src={logoFile}
-          alt="Fabriclicious - High-End Fabric Atelier"
+          alt="Fabriclicious - Premium Fabric Store"
           className={imgClassName || `h-10 sm:h-12 md:h-14 w-auto max-w-[260px] sm:max-w-[320px] object-contain ${themeClasses}`}
         />
       </motion.div>

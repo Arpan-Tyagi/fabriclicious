@@ -27,10 +27,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.fabriclicious.com"),
   title: {
     default: "Fabriclicious | Haute Couture & Bespoke Natural Textiles",
-    template: "%s | Fabriclicious Atelier",
+    template: "%s | Fabriclicious",
   },
   description:
-    "Ultra-luxury fabric atelier offering continuous fractional cuts from 0.5 meters. Direct mill provenance across French Normandy Linens, Como Silk Satins, and Yorkshire Worsted Wools.",
+    "Online natural fabric store offering continuous cuts from 0.5 meters. Quality linen, cotton, silk, and wool direct from heritage textile mills.",
   keywords: [
     "luxury fabrics",
     "couture textiles",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     "natural fiber cloth",
     "fabric swatches",
   ],
-  authors: [{ name: "Fabriclicious Atelier" }],
+  authors: [{ name: "Fabriclicious" }],
   creator: "Fabriclicious",
   publisher: "Mithila Enterprises",
   alternates: {
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
         url: "/images/logo-horizontal.svg",
         width: 1200,
         height: 630,
-        alt: "Fabriclicious - Haute Couture Textiles Atelier",
+        alt: "Fabriclicious - Premium Natural Fabrics",
       },
     ],
   },
@@ -100,7 +100,7 @@ const organizationSchema = {
       url: "https://www.fabriclicious.com",
       logo: "https://www.fabriclicious.com/images/logo-horizontal.svg",
       description:
-        "Exclusive digital atelier specializing in bespoke continuous textile cuts from Europe's heritage family looms.",
+        "Online fabric store specializing in continuous, natural fabric cuts direct from heritage textile mills.",
       parentOrganization: {
         "@type": "Organization",
         name: "Mithila Enterprises",

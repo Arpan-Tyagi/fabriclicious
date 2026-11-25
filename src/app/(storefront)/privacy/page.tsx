@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Privacy Policy | Fabriclicious Atelier",
-  description: "Data handling, client confidentiality, and atelier account privacy.",
+  title: "Privacy Policy | Fabriclicious",
+  description: "Data handling, client confidentiality, and customer account privacy.",
 };
 
 export default function PrivacyPage() {
@@ -37,7 +37,7 @@ export default function PrivacyPage() {
           <div className="border border-hemp rounded-2xl p-8 bg-limestone space-y-4">
             <h2 className="font-serif text-2xl text-umber">3. Newsletter &amp; Rare Surplus Drops</h2>
             <p>
-              Subscribing to &quot;Join The Atelier&quot; provides confidential access to rare mill drop announcements. You may unsubscribe at any time with a single click.
+              Subscribing to &quot;Join Our Newsletter&quot; provides early access to rare fabric arrivals. You may unsubscribe at any time with a single click.
             </p>
           </div>
         </section>
